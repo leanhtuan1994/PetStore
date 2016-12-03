@@ -39,6 +39,8 @@ namespace Domain.EF
         [StringLength(50)]
         public string CreatedBy { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? ModifiedDate { get; set; }
 
         [StringLength(50)]

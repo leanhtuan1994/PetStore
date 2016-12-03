@@ -41,5 +41,10 @@ namespace WebUI.Areas.Admin.Controllers
             return View(); 
         }
 
+        public ActionResult Logout() {
+            Session.Remove(CommonConstant.USER_SESSION);
+            return RedirectToAction("Index", "Login");
+        }
+
     }
 }

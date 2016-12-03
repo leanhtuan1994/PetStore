@@ -66,8 +66,7 @@ namespace WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,Status")] User user)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 user.Password = Encryptor.MD5Hash(user.Password);
                 userDAO.Insert(user);
                 return RedirectToAction("Index");
@@ -79,13 +78,11 @@ namespace WebUI.Areas.Admin.Controllers
         // GET: Admin/User/Edit/5
         public ActionResult Edit(long? id)
         {
-            if (id == null)
-            {
+            if (id == null)   {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = userDAO.GetByID(id);
-            if (user == null)
-            {
+            if (user == null)    {
                 return HttpNotFound();
             }
             return View(user);
@@ -101,8 +98,7 @@ namespace WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,Status")] User user)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid)  {
                 user.Password = Encryptor.MD5Hash(user.Password);
                 userDAO.Edit(user);
                 return RedirectToAction("Index");
@@ -144,6 +140,9 @@ namespace WebUI.Areas.Admin.Controllers
             }
             return View();  
         }
+
+        
+
 
     }
 }
