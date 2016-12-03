@@ -15,16 +15,27 @@ namespace WebUI.Areas.Admin.Controllers
 {
     public class UserController : BaseController
     {
-        private PetStoreDbContext db = new PetStoreDbContext();
+        // Tạo Ob userDAO từ USERDAO
         private UserDAO userDAO = new UserDAO();
 
         // GET: Admin/User
+        /// <summary>
+        /// Lấy list danh sách user kèm theo page, pageSize
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public ActionResult Index(int page = 1, int pageSize = 10)
         {
             return View(userDAO.ListAllPaging(page, pageSize));
         }
 
         // GET: Admin/User/Details/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Details(long? id)
         {
             if (id == null)
@@ -46,8 +57,11 @@ namespace WebUI.Areas.Admin.Controllers
         }
 
         // POST: Admin/User/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,Status")] User user)
@@ -97,6 +111,11 @@ namespace WebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/User/Delete/5
+        /// <summary>
+        /// Lấy id truyền vào View Delete
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Delete(long? id)
         {
             if (id == null) {
@@ -111,7 +130,7 @@ namespace WebUI.Areas.Admin.Controllers
 
         // POST: Admin/User/Delete/5
         /// <summary>
-        /// 
+        /// Xóa User nếu nhận comfirmed
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -126,15 +145,5 @@ namespace WebUI.Areas.Admin.Controllers
             return View();  
         }
 
-
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }
