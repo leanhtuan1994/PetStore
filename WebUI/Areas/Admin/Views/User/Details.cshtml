@@ -8,7 +8,8 @@
 
 <h4> Thông Tin Chi Tiết </h4>
 
-<div>
+
+<div class="col-lg-8">
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -103,5 +104,5 @@
 </div>
 <p >
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, htmlAttributes: new { @class="btn btn-danger"}) |
-    @Html.ActionLink("Quay Lại", "Index", "Admin", htmlAttributes: new { @class = "btn btn-default" })
+    @Html.ActionLink("Quay Lại", "Index", null, htmlAttributes: new { @class = "btn btn-default" })
 </p>
