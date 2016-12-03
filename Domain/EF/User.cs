@@ -15,6 +15,7 @@ namespace Domain.EF
         public string Username { get; set; }
 
         [StringLength(50)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [StringLength(50)]
@@ -24,11 +25,15 @@ namespace Domain.EF
         public string Address { get; set; }
 
         [StringLength(50)]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [StringLength(50)]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(50)]

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.Security.Cryptography;
-
 namespace WebUI.Common {
 
     // Đây là lớp mã hóa MD5

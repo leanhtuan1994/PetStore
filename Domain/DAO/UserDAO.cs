@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.EF;
 using PagedList;
-
+using System.Data.Entity;
+                
 namespace Domain.DAO {
     public class UserDAO {
         private PetStoreDbContext data = null;
@@ -23,7 +24,7 @@ namespace Domain.DAO {
             return data.Users.SingleOrDefault(x => x.Username == username);
         }
 
-        public User GetByID(long id) {
+        public User GetByID(long? id) {
             return data.Users.Find(id);
         }
         public bool Login(string username, string password) {
@@ -36,22 +37,14 @@ namespace Domain.DAO {
             return data.Users.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
-        public bool Update(User newUser) {
+        public bool Edit(User user) {
             try {
-                var user = data.Users.Find(newUser.ID);
-                user.Name = newUser.Name;
-                user.Email = newUser.Email;
-                user.Address = newUser.Address;
-                user.ModifiedBy = newUser.ModifiedBy;
-                user.ModifiedDate = newUser.ModifiedDate;
-
+                data.Entry(user).State = EntityState.Modified;
                 data.SaveChanges();
                 return true;
-
             } catch (Exception ex) {
                 return false;
             }
-
         }
 
         public bool Delete(long id) {
