@@ -29,6 +29,7 @@ namespace Domain.EF
         [StringLength(250)]
         public string MetaTitle { get; set; }
 
+
         [StringLength(250)]
         public string Image { get; set; }
 
@@ -46,11 +47,15 @@ namespace Domain.EF
         [Column(TypeName = "ntext")]
         public string Detail { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(50)]
         public string CreatedBy { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? ModifiedDate { get; set; }
 
         [StringLength(50)]
