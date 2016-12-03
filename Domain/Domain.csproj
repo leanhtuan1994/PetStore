@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +59,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="EF\About.cs" />
+    <Compile Include="EF\Category.cs" />
+    <Compile Include="EF\Contact.cs" />
+    <Compile Include="EF\Content.cs" />
+    <Compile Include="EF\ContentTag.cs" />
+    <Compile Include="EF\Customer.cs" />
+    <Compile Include="EF\Feedback.cs" />
+    <Compile Include="EF\Menu.cs" />
+    <Compile Include="EF\MenuType.cs" />
+    <Compile Include="EF\Order.cs" />
+    <Compile Include="EF\OrderDetail.cs" />
+    <Compile Include="EF\PetStoreDbContext.cs" />
+    <Compile Include="EF\Product.cs" />
+    <Compile Include="EF\ProductCategory.cs" />
+    <Compile Include="EF\Slide.cs" />
+    <Compile Include="EF\SystemConfig.cs" />
+    <Compile Include="EF\Tag.cs" />
+    <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,10 +87,7 @@
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-    <Folder Include="EF\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
