@@ -7,30 +7,29 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Domain.EF;
+using Domain.DAO;
+using PagedList;
 
 namespace WebUI.Areas.Admin.Controllers
 {
     public class ProductController : BaseController
     {
-        private PetStoreDbContext db = new PetStoreDbContext();
+        private ProductDAO productDAO = new ProductDAO();
 
         // GET: Admin/Product
-        public ActionResult Index()
-        {
-            var products = db.Products.Include(p => p.ProductCategory);
-            return View(products.ToList());
+        public ActionResult Index(int page = 1, int pageSize = 10){
+            var products = productDAO.ListAllPaging(page, pageSize);
+            return View(products);
         }
 
         // GET: Admin/Product/Details/5
         public ActionResult Details(long? id)
         {
-            if (id == null)
-            {
+            if (id == null){
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
-            {
+            Product product = productDAO.GetByID(id);
+            if (product == null){
                 return HttpNotFound();
             }
             return View(product);
@@ -39,71 +38,60 @@ namespace WebUI.Areas.Admin.Controllers
         // GET: Admin/Product/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryID = new SelectList(db.ProductCategories, "ID", "Name");
+            SetViewBag();
             return View();
         }
 
         // POST: Admin/Product/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,Code,Description,MetaTitle,Image,MoreImages,Price,PromotionPrice,Quantity,CategoryID,Detail,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescription,Status,ViewCount")] Product product)
         {
-            if (ModelState.IsValid)
-            {
-                db.Products.Add(product);
-                db.SaveChanges();
+            if (ModelState.IsValid && productDAO.Create(product)) {              
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryID = new SelectList(db.ProductCategories, "ID", "Name", product.CategoryID);
+            SetViewBag(product.CategoryID);
             return View(product);
         }
 
         // GET: Admin/Product/Edit/5
         public ActionResult Edit(long? id)
         {
-            if (id == null)
-            {
+            if (id == null)    {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
-            {
+            Product product = productDAO.GetByID(id);
+            if (product == null){
                 return HttpNotFound();
             }
-            ViewBag.CategoryID = new SelectList(db.ProductCategories, "ID", "Name", product.CategoryID);
+            SetViewBag(product.CategoryID);
             return View(product);
         }
 
         // POST: Admin/Product/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,Code,Description,MetaTitle,Image,MoreImages,Price,PromotionPrice,Quantity,CategoryID,Detail,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescription,Status,ViewCount")] Product product)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+            if (ModelState.IsValid)  {
+                productDAO.Edit(product);
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryID = new SelectList(db.ProductCategories, "ID", "Name", product.CategoryID);
+            
+            SetViewBag(product.CategoryID);
             return View(product);
         }
 
         // GET: Admin/Product/Delete/5
         public ActionResult Delete(long? id)
         {
-            if (id == null)
-            {
+            if (id == null)  {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
-            {
+            Product product = productDAO.GetByID(id);
+            if (product == null) {
                 return HttpNotFound();
             }
             return View(product);
@@ -114,19 +102,14 @@ namespace WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            productDAO.Delete(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+
+        public void SetViewBag(long? selectedID = null) {
+            ViewBag.ParentID = new SelectList(productDAO.ListAll(), "ID", "Name", selectedID);
         }
+
     }
 }

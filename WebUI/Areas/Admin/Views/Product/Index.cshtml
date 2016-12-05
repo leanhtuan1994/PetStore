@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Domain.EF.Product>
+﻿@model PagedList.IPagedList<Domain.EF.Product>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -13,46 +14,46 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ProductCategory.Name)
+            @Html.DisplayNameFor(model => model[0].ProductCategory.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model[0].Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Code)
+            @Html.DisplayNameFor(model => model[0].Code)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model[0].Description)
         </th>         
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model[0].Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PromotionPrice)
+            @Html.DisplayNameFor(model => model[0].PromotionPrice)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+            @Html.DisplayNameFor(model => model[0].Quantity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Detail)
+            @Html.DisplayNameFor(model => model[0].Detail)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
+            @Html.DisplayNameFor(model => model[0].CreatedDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.DisplayNameFor(model => model[0].CreatedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MetaKeywords)
+            @Html.DisplayNameFor(model => model[0].MetaKeywords)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MetaDescription)
+            @Html.DisplayNameFor(model => model[0].MetaDescription)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.DisplayNameFor(model => model[0].Status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ViewCount)
+            @Html.DisplayNameFor(model => model[0].ViewCount)
         </th>
         <th></th>
     </tr>
@@ -110,3 +111,5 @@
 }
 
 </table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
