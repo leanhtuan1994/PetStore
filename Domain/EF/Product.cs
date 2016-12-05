@@ -42,6 +42,7 @@
         public string MoreImages { get; set; }
 
         [DisplayName("Giá")]
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         public decimal? Price { get; set; }
 
         [DisplayName("Giá Giảm")]

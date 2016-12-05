@@ -8,15 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using Domain.EF;
 using Domain.DAO;
-using PagedList;
 
 namespace WebUI.Areas.Admin.Controllers
 {
-    public class CustomerController : BaseController
-    {
+    public class OrdersController : BaseController {
+        private OrdersDAO ordersDAO = new OrdersDAO();
         private CustomerDAO customerDAO = new CustomerDAO();
 
-        // GET: Admin/Customer
+        // GET: Admin/Orders
         /// <summary>
         /// 
         /// </summary>
@@ -24,11 +23,11 @@ namespace WebUI.Areas.Admin.Controllers
         /// <param name="pageSize"></param>
         /// <returns></returns>
         public ActionResult Index(int page = 1, int pageSize = 10)
-        {
-            return View(customerDAO.ListAllPaging(page, pageSize));
+        {           
+            return View(ordersDAO.ListAllPaging(page, pageSize));
         }
 
-        // GET: Admin/Customer/Details/5
+        // GET: Admin/Orders/Details/5
         /// <summary>
         /// 
         /// </summary>
@@ -39,66 +38,84 @@ namespace WebUI.Areas.Admin.Controllers
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = customerDAO.GetByID(id);
-            if (customer == null){
+            Orders orders = ordersDAO.GetByID(id);
+            if (orders == null){
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(orders);
         }
 
-        
 
-        // GET: Admin/Customer/Edit/5
+       
+        // GET: Admin/Orders/Edit/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Edit(long? id)
-        {
-            if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Customer customer = customerDAO.GetByID(id);
-            if (customer == null){
-                return HttpNotFound();
-            }
-            return View(customer);
-        }
-
-        // POST: Admin/Customer/Edit/5
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="customer"></param>
-       /// <returns></returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Address,Email,Phone,CreatedDate,ShipName,ShipAddress,ShipPhone")] Customer customer)
-        {
-            if (ModelState.IsValid && customerDAO.Edit(customer)){
-              
-                return RedirectToAction("Index");
-            }
-            return View(customer);
-        }
-
-        // GET: Admin/Customer/Delete/5
-        public ActionResult Delete(long? id)
         {
             if (id == null){
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = customerDAO.GetByID(id);
-            if (customer == null){
+            Orders orders = ordersDAO.GetByID(id);
+            if (orders == null)
+            {
                 return HttpNotFound();
             }
-            return View(customer);
+            ViewBag.CustomerID = new SelectList(customerDAO.ListAll(), "ID", "Name", orders.CustomerID);
+            return View(orders);
         }
 
-        // POST: Admin/Customer/Delete/5
+        // POST: Admin/Orders/Edit/5
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="orders"></param>
+       /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "ID,CustomerID,DisplayOrder,Total,OrderStatus,OrderDate,ShipDate,ShipStatus")] Orders orders)
+        {
+            if (ModelState.IsValid && ordersDAO.Edit(orders)) {
+                return RedirectToAction("Index");
+            }
+            ViewBag.CustomerID = new SelectList(customerDAO.ListAll(), "ID", "Name", orders.CustomerID);
+            return View(orders);
+        }
+
+        // GET: Admin/Orders/Delete/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Delete(long? id)
+        {
+            if (id == null)  {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Orders orders = ordersDAO.GetByID(id);
+            if (orders == null) {
+                return HttpNotFound();
+            }
+            return View(orders);
+        }
+
+        // POST: Admin/Orders/Delete/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            customerDAO.Delete(id);
+            ordersDAO.Delete(id);
             return RedirectToAction("Index");
         }
+
 
     }
 }

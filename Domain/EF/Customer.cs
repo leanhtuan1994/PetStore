@@ -19,7 +19,7 @@
         public long ID { get; set; }
 
         [StringLength(100)]
-        [DisplayName("Tên")]
+        [DisplayName("Tên Khách Hàng")]
         public string Name { get; set; }
 
         [StringLength(100)]

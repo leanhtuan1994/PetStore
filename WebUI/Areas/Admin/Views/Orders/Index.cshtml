@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<Domain.EF.Orders>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header { Danh Sách Đơn Hàng }
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Customer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].DisplayOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].OrderStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].ShipDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].ShipStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisplayOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

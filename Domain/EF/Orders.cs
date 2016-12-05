@@ -24,6 +24,7 @@
         public int? DisplayOrder { get; set; }
 
         [DisplayName("Tổng Tiền")]
+        
         public decimal? Total { get; set; }
 
         [DisplayName("Tình Trạng TT")]
@@ -35,6 +36,8 @@
         public DateTime? OrderDate { get; set; }
 
         [DisplayName("Ngày Ship")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? ShipDate { get; set; }
 
         [DisplayName("Tình Trạng Ship")]

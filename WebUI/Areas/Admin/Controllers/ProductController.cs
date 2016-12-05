@@ -108,7 +108,7 @@ namespace WebUI.Areas.Admin.Controllers
 
 
         public void SetViewBag(long? selectedID = null) {
-            ViewBag.ParentID = new SelectList(productDAO.ListAll(), "ID", "Name", selectedID);
+            ViewBag.CategoryID = new SelectList(productDAO.ListAll(), "ID", "Name", selectedID);
         }
 
     }
