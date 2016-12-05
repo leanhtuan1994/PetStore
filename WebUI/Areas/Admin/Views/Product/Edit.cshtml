@@ -8,6 +8,27 @@
 @section header { Quản Lý Sản Phẩm }
 <h3 > Sửa Thông Tin Sản Phẩm </h3>
 
+@section JSFooter{
+    <script>
+
+        $('#btnSecledImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#ImageContent').val(url);
+            };
+            finder.popup();
+
+        })
+
+        var editor = CKEDITOR.replace('detailContent', {
+            customConfig: '/Assets/Admin/js/plugins/ckeditor/config.js'
+        });
+    </script>
+}
+
+
+
 <div class="col-lg-8">
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
@@ -53,7 +74,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "ImageContent" }, id = "ImageContent" })
+                    <a id="btnAddImage" href="#"> Add Image</a>
                     @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -101,7 +123,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" , @id = "detailContent" }, id = "detailContent" })
                     @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
                 </div>
             </div>
