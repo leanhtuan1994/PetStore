@@ -16,7 +16,6 @@
             Orders = new HashSet<Orders>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
 
         [StringLength(100)]
@@ -47,9 +46,10 @@
         [DisplayName("Địa Chỉ NN")]
         public string ShipAddress { get; set; }
 
-        [MaxLength(50)]
+
         [DisplayName("Số ĐT NN")]
-        public byte[] ShipPhone { get; set; }
+        [StringLength(50)]
+        public string ShipPhone { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
