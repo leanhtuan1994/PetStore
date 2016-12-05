@@ -2,6 +2,7 @@ namespace Domain.EF
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -13,6 +14,7 @@ namespace Domain.EF
         public string ID { get; set; }
 
         [StringLength(50)]
+        [DisplayName("Tên")]
         public string Name { get; set; }
     }
 }
