@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\ProductCategoryDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
@@ -72,8 +73,8 @@
     <Compile Include="EF\Feedback.cs" />
     <Compile Include="EF\Menu.cs" />
     <Compile Include="EF\MenuType.cs" />
-    <Compile Include="EF\Order.cs" />
     <Compile Include="EF\OrderDetail.cs" />
+    <Compile Include="EF\Orders.cs" />
     <Compile Include="EF\PetStoreDbContext.cs" />
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\ProductCategory.cs" />

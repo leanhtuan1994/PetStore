@@ -15,26 +15,26 @@ namespace Domain.DAO {
         }
 
         public long Insert(User user) {
-            data.Users.Add(user);
+            data.User.Add(user);
             data.SaveChanges();
             return user.ID;
         }
 
         public User GetByUername(string username) {
-            return data.Users.SingleOrDefault(x => x.Username == username);
+            return data.User.SingleOrDefault(x => x.Username == username);
         }
 
         public User GetByID(long? id) {
-            return data.Users.Find(id);
+            return data.User.Find(id);
         }
         public bool Login(string username, string password) {
-            var result = data.Users.Count(x => x.Username == username && x.Password == password);
+            var result = data.User.Count(x => x.Username == username && x.Password == password);
             return result > 0 ? true : false;
         }
 
         // lấy danh sách theo từng page
         public IEnumerable<User> ListAllPaging(int page, int pageSize) {
-            return data.Users.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            return data.User.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
         public bool Edit(User user) {
@@ -50,7 +50,7 @@ namespace Domain.DAO {
         public bool Delete(long id) {
             try {
                 var user = GetByID(id);
-                data.Users.Remove(user);
+                data.User.Remove(user);
                 data.SaveChanges();
                 return true;
             } catch (Exception ex) {

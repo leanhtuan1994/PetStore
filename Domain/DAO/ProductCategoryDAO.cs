@@ -16,20 +16,20 @@ namespace Domain.DAO {
         }
 
         public ProductCategory GetProductCategoryByID(long? id) {
-           return db.ProductCategories.Find(id);
+           return db.ProductCategory.Find(id);
         }
 
         public IEnumerable<ProductCategory> ListAll() {
-            return  db.ProductCategories.Include(p => p.ProductCategory2);
+            return  db.ProductCategory.Include(p => p.ProductCategory2);
         }
 
         public IEnumerable<ProductCategory> ListAllPaging(int page, int pageSize) {
-            return db.ProductCategories.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            return db.ProductCategory.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
         public bool Create(ProductCategory productCategory) {
             try {
-                db.ProductCategories.Add(productCategory);
+                db.ProductCategory.Add(productCategory);
                 db.SaveChanges();
                 return true;
             } catch (Exception ex) {
@@ -49,8 +49,8 @@ namespace Domain.DAO {
 
         public bool Delete(long id) {
              try {
-                ProductCategory productCategory = db.ProductCategories.Find(id);
-                db.ProductCategories.Remove(productCategory);
+                ProductCategory productCategory = db.ProductCategory.Find(id);
+                db.ProductCategory.Remove(productCategory);
                 db.SaveChanges();
                 return true;
             }   catch ( Exception ex) {

@@ -9,55 +9,55 @@ namespace Domain.EF {
             : base("name=PetStoreDbContext") {
         }
 
-        public virtual DbSet<About> Abouts {
+        public virtual DbSet<About> About {
             get; set;
         }
-        public virtual DbSet<Category> Categories {
+        public virtual DbSet<Category> Category {
             get; set;
         }
-        public virtual DbSet<Contact> Contacts {
+        public virtual DbSet<Contact> Contact {
             get; set;
         }
-        public virtual DbSet<Content> Contents {
+        public virtual DbSet<Content> Content {
             get; set;
         }
-        public virtual DbSet<ContentTag> ContentTags {
+        public virtual DbSet<ContentTag> ContentTag {
             get; set;
         }
-        public virtual DbSet<Customer> Customers {
+        public virtual DbSet<Customer> Customer {
             get; set;
         }
-        public virtual DbSet<Feedback> Feedbacks {
+        public virtual DbSet<Feedback> Feedback {
             get; set;
         }
-        public virtual DbSet<Menu> Menus {
+        public virtual DbSet<Menu> Menu {
             get; set;
         }
-        public virtual DbSet<MenuType> MenuTypes {
+        public virtual DbSet<MenuType> MenuType {
             get; set;
         }
-        public virtual DbSet<OrderDetail> OrderDetails {
+        public virtual DbSet<OrderDetail> OrderDetail {
             get; set;
         }
-        public virtual DbSet<Order> Orders {
+        public virtual DbSet<Orders> Orders {
             get; set;
         }
-        public virtual DbSet<Product> Products {
+        public virtual DbSet<Product> Product {
             get; set;
         }
-        public virtual DbSet<ProductCategory> ProductCategories {
+        public virtual DbSet<ProductCategory> ProductCategory {
             get; set;
         }
-        public virtual DbSet<Slide> Slides {
+        public virtual DbSet<Slide> Slide {
             get; set;
         }
-        public virtual DbSet<SystemConfig> SystemConfigs {
+        public virtual DbSet<SystemConfig> SystemConfig {
             get; set;
         }
-        public virtual DbSet<Tag> Tags {
+        public virtual DbSet<Tag> Tag {
             get; set;
         }
-        public virtual DbSet<User> Users {
+        public virtual DbSet<User> User {
             get; set;
         }
 
@@ -94,6 +94,11 @@ namespace Domain.EF {
                 .Property(e => e.MetaDescription)
                 .IsFixedLength();
 
+            modelBuilder.Entity<Category>()
+                .HasMany(e => e.Category1)
+                .WithOptional(e => e.Category2)
+                .HasForeignKey(e => e.ParentID);
+
             modelBuilder.Entity<Content>()
                 .Property(e => e.MetaTitle)
                 .IsUnicode(false);
@@ -123,7 +128,7 @@ namespace Domain.EF {
                 .IsUnicode(false);
 
             modelBuilder.Entity<MenuType>()
-                .HasMany(e => e.Menus)
+                .HasMany(e => e.Menu)
                 .WithOptional(e => e.MenuType)
                 .HasForeignKey(e => e.TypeID);
 
@@ -135,13 +140,14 @@ namespace Domain.EF {
                 .Property(e => e.Total)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<Orders>()
                 .Property(e => e.Total)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.Order)
+            modelBuilder.Entity<Orders>()
+                .HasMany(e => e.OrderDetail)
+                .WithRequired(e => e.Orders)
+                .HasForeignKey(e => e.OrderID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
@@ -173,7 +179,7 @@ namespace Domain.EF {
                 .IsFixedLength();
 
             modelBuilder.Entity<Product>()
-                .HasMany(e => e.OrderDetails)
+                .HasMany(e => e.OrderDetail)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
@@ -194,7 +200,7 @@ namespace Domain.EF {
                 .IsFixedLength();
 
             modelBuilder.Entity<ProductCategory>()
-                .HasMany(e => e.Products)
+                .HasMany(e => e.Product)
                 .WithOptional(e => e.ProductCategory)
                 .HasForeignKey(e => e.CategoryID);
 

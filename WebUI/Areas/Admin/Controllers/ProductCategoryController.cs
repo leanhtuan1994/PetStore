@@ -13,7 +13,6 @@ namespace WebUI.Areas.Admin.Controllers
 {
     public class ProductCategoryController : BaseController
     {
-        private PetStoreDbContext db = new PetStoreDbContext();
         private ProductCategoryDAO prCateDAO = new ProductCategoryDAO();
 
         // GET: Admin/ProductCategory

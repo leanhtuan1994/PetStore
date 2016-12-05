@@ -1,8 +1,7 @@
-﻿namespace Domain.EF
+namespace Domain.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -13,10 +12,8 @@
         public int ID { get; set; }
 
         [Column(TypeName = "ntext")]
-        [DisplayName("Nội Dung")]
         public string Content { get; set; }
 
-        [DisplayName("Trạng Thái")]
         public bool? Status { get; set; }
     }
 }

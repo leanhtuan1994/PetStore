@@ -8,28 +8,30 @@ using PagedList;
 using System.Data.Entity;
 
 
+
 namespace Domain.DAO {
-    public class ProductDAO {
+    public class CategoryDAO {
         private PetStoreDbContext db = null;
-        public ProductDAO() {
+
+        public CategoryDAO() {
             this.db = new PetStoreDbContext();
         }
 
-        public Product GetByID(long? id) {
-            return db.Product.Find(id);
+        public Category GetByID(long? id) {
+            return db.Category.Find(id);
         }
 
-        public IEnumerable<Product> ListAll() {
-            return db.Product.Include(p => p.ProductCategory);
+        public IEnumerable<Category> ListAll() {
+            return db.Category.Include(p => p.Category2);
         }
 
-        public IEnumerable<Product> ListAllPaging(int page, int pageSize) {
-            return db.Product.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        public IEnumerable<Category> ListAllPaging(int page, int pageSize) {
+            return db.Category.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
-        public bool Create(Product product) {
+        public bool Create(Category category) {
             try {
-                db.Product.Add(product);
+                db.Category.Add(category);
                 db.SaveChanges();
                 return true;
             } catch (Exception ex) {
@@ -37,9 +39,9 @@ namespace Domain.DAO {
             }
         }
 
-        public bool Edit(Product product) {
+        public bool Edit(Category category) {
             try {
-                db.Entry(product).State = EntityState.Modified;
+                db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return true;
             } catch (Exception ex) {
@@ -49,16 +51,14 @@ namespace Domain.DAO {
 
         public bool Delete(long id) {
             try {
-                Product product = db.Product.Find(id);
-                db.Product.Remove(product);
+                Category category = db.Category.Find(id);
+                db.Category.Remove(category);
                 db.SaveChanges();
                 return true;
             } catch (Exception ex) {
                 return false;
             }
         }
-
-
 
     }
 }

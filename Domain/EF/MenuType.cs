@@ -12,7 +12,7 @@ namespace Domain.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MenuType()
         {
-            Menus = new HashSet<Menu>();
+            Menu = new HashSet<Menu>();
         }
 
         public long ID { get; set; }
@@ -21,6 +21,6 @@ namespace Domain.EF
         public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Menu> Menus { get; set; }
+        public virtual ICollection<Menu> Menu { get; set; }
     }
 }
