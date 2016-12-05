@@ -20,7 +20,7 @@
         public long ID { get; set; }
 
         [StringLength(250)]
-        [DisplayName("Tên")]
+        [DisplayName("Tên DM")]
         public string Name { get; set; }
 
         [StringLength(250)]
@@ -75,5 +75,6 @@
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Content> Content { get; set; }
+
     }
 }

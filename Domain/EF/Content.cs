@@ -10,7 +10,7 @@
     [Table("Content")]
     public partial class Content
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public long ID { get; set; }
 
         [StringLength(250)]
@@ -65,7 +65,7 @@
         [DisplayName("Trạng Thái")]
         public bool? Status { get; set; }
 
-        [DisplayName("Số Lượng")]
+        [DisplayName("Lượt Xem")]
         public int? ViewCount { get; set; }
 
         [StringLength(250)]
