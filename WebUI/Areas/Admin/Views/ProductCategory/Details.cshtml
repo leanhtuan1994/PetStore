@@ -11,107 +11,111 @@
 </h3>
 
 <div class="col-lg-8">
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaTitle)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MetaTitle)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaTitle)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DisplayOrder)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MetaTitle)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DisplayOrder)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SeoTitle)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DisplayOrder)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SeoTitle)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SeoTitle)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SeoTitle)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedBy)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedBy)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaKeywords)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedBy)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MetaKeywords)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaKeywords)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaDescription)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MetaKeywords)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MetaDescription)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaDescription)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MetaDescription)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ShowOnHome)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ShowOnHome)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ShowOnHome)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.ShowOnHome)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.ID }, htmlAttributes: new { @class = "btn btn-danger" }) |
+        @Html.ActionLink("Quay Lại", "Index", null, htmlAttributes: new { @class = "btn btn-default" })
+    </p>
+
 </div>
-<p>
-    @Html.ActionLink("Sửa", "Edit", new { id = Model.ID }, htmlAttributes: new { @class = "btn btn-danger" }) |
-    @Html.ActionLink("Quay Lại", "Index", null, htmlAttributes: new { @class="btn btn-default"})
-</p>
