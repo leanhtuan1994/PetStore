@@ -16,7 +16,7 @@
         [DisplayName("Hình Ảnh")]
         public string Image { get; set; }
 
-        [DisplayName("thứ Tự")]
+        [DisplayName("Thứ Tự")]
         public int? DisplayOrder { get; set; }
 
         [StringLength(250)]

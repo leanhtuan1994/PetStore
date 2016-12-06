@@ -10,7 +10,6 @@
     [Table("Feedback")]
     public partial class Feedback
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
 
         [StringLength(50)]

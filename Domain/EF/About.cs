@@ -10,7 +10,6 @@
     [Table("About")]
     public partial class About
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
 
         [StringLength(250)]
