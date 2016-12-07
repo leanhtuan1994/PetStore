@@ -24,10 +24,10 @@
                 </div>
                 <div class="cart">
                     <p>
-                        Welcome to our Online Store! <span>Cart:</span><div id="dd" class="wrapper-dropdown-2">
-                            0 item(s) - $0.00
+                        Chào Bạn đến với Puppy Shop <span> Giỏ hàng </span><div id="dd" class="wrapper-dropdown-2">
+                            0 sản phẩm - 0.00đ
                             <ul class="dropdown">
-                                <li>you have no items in your Shopping cart</li>
+                                <li>Bạn chưa có mặt hàng nào trong giỏ </li>
                             </ul>
                         </div>
                     </p>
@@ -64,12 +64,6 @@
             </div>
             <div class="header_bottom">
                 @{ Html.RenderAction("MainMenu", "Home"); }
-                <div class="search_box">
-                    <form>
-                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
-                    </form>
-                </div>
-                <div class="clear"></div>
             </div>
             @RenderSection("slide", required: false)
         </div>

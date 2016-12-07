@@ -13,12 +13,43 @@ namespace WebUI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Routing cho danh mục sản phẩm
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }  ,
-                namespaces: new[] {"WebUI.Controllers"}
+                name: "Product Category",
+                url: "san-pham/{metatitle}-{id}",
+                defaults: new {
+                    controller = "Product", action = "Category", id = UrlParameter.Optional
+                },
+                namespaces: new[] { "WebUI.Controllers" }
             );
+            // Routing chi tiết sản phẩm
+            routes.MapRoute(
+               name: "Product Detail",
+               url: "chi-tiet/{metatitle}-{id}",
+               defaults: new {
+                   controller = "Product", action = "Detail", id = UrlParameter.Optional
+               },
+               namespaces: new[] { "WebUI.Controllers" }
+           );
+
+            routes.MapRoute(
+               name: "About",
+               url: "about",
+               defaults: new {
+                   controller = "About", action = "Index", id = UrlParameter.Optional
+               },
+               namespaces: new[] { "WebUI.Controllers" }
+           );
+
+            routes.MapRoute(
+               name: "Default",
+               url: "{controller}/{action}/{id}",
+               defaults: new {
+                   controller = "Home", action = "Index", id = UrlParameter.Optional
+               },
+               namespaces: new[] { "WebUI.Controllers" }
+           );
+
         }
     }
 }

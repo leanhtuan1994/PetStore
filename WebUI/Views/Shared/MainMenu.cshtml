@@ -6,7 +6,12 @@
         @foreach (var item in Model) {
             <li><a href="@item.Link" target="@item.Target"> @item.Text </a></li>
         }
-        
-        <div class="clear"> </div>
     </ul>
+    <div class="clear"> </div>
 </div>
+<div class="search_box">
+    <form>
+        <input type="text" value="Tìm kiếm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
+    </form>
+</div>
+<div class="clear"></div>

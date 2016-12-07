@@ -10,9 +10,16 @@ namespace WebUI.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.Slides = new SlideDAO().ListAll();
+            ViewBag.ListNewProduct = new ProductDAO().ListNewProduct(4);
+            ViewBag.ListFeatureProduct = new ProductDAO().ListFeatureProduct(4);
             return View();
         }
 

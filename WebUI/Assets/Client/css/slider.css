@@ -74,7 +74,7 @@
 	font-size:0.9em;
 	color:#888888;
 	padding:8px 20px;
-	background:url(../images/list_img.png) no-repeat 0px;
+	background:url(../images/list-img.png) no-repeat 0px;
 	cursor:pointer;
 }
 .features_list li:hover{

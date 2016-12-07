@@ -20,7 +20,9 @@ namespace Domain.DAO {
         }
 
         public IEnumerable<ProductCategory> ListAll() {
-            return  db.ProductCategory.Include(p => p.ProductCategory2);
+            return db.ProductCategory.Include(p => p.ProductCategory2)
+                                        .Where(p => p.Status == true)
+                                        .OrderBy(p => p.DisplayOrder);
         }
 
         public IEnumerable<ProductCategory> ListAllPaging(int page, int pageSize) {

@@ -27,6 +27,17 @@ namespace Domain.DAO {
             return db.Product.Include(p => p.ProductCategory).OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
+        public IEnumerable<Product> ListNewProduct(int top) {
+            return db.Product.Include(p => p.ProductCategory).OrderByDescending(x => x.CreatedDate).Take(top).ToList();
+        }
+
+        public IEnumerable<Product> ListFeatureProduct(int top) {
+            return db.Product.Include(p => p.ProductCategory)
+                              .OrderByDescending(p => p.ViewCount)
+                              .Take(top)
+                              .ToList();
+        }
+
         public bool Create(Product product) {
             try {
                 db.Product.Add(product);

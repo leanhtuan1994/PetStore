@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Domain.EF.ProductCategory>
+
+<div class="categories">
+    <h3> Danh Mục Sản Phẩm </h3>
+    <ul>
+        @foreach (var item in Model) {
+            <li><a href="/san-pham/@item.MetaTitle-@item.ID"> @item.Name </a></li>
+        }
+    </ul>
+</div>

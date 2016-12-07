@@ -18,7 +18,9 @@ namespace Domain.DAO {
         }
 
         public IEnumerable<Slide> ListAll() {
-            return db.Slide.ToList();
+            return db.Slide.Where(x => x.Status == true)
+                            .OrderBy(x => x.DisplayOrder)
+                            .ToList();
         }
 
         public bool Create(Slide slide) {
