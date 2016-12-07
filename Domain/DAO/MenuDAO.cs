@@ -19,8 +19,11 @@ namespace Domain.DAO {
 
         public IEnumerable<Menu> ListAll() {
             return db.Menu.Include(p => p.MenuType);
-        }                                      
+        }
 
+        public IEnumerable<Menu> ListByGroupID(long id) {
+            return db.Menu.Where(x => x.TypeID == id && x.Status == true).OrderBy(x => x.DisplayOrder);
+        }
 
         public bool Create(Menu menu) {
             try {

@@ -65,6 +65,7 @@
     <Compile Include="DAO\ContentDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\FeedbackDAO.cs" />
+    <Compile Include="DAO\FooterDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\MenuTypeDAO.cs" />
     <Compile Include="DAO\OrdersDAO.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="EF\ContentTag.cs" />
     <Compile Include="EF\Customer.cs" />
     <Compile Include="EF\Feedback.cs" />
+    <Compile Include="EF\Footer.cs" />
     <Compile Include="EF\Menu.cs" />
     <Compile Include="EF\MenuType.cs" />
     <Compile Include="EF\OrderDetail.cs" />

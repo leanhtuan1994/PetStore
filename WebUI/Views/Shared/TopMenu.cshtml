@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Domain.EF.Menu>
+
+<div class="call">
+    <p> <span> Need help? </span> call us <span class="number">1-22-3456789</span></p>
+</div>
+<div class="account_desc">
+    <ul>
+        @foreach (var item in Model) {
+            <li> <a href="@item.Link" target="@item.Target"> @item.Text </a></li>
+        }
+    </ul>
+</div>
+<div class="clear"></div>

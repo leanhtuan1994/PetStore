@@ -1274,6 +1274,69 @@
     <Content Include="Assets\Admin\vendor\morrisjs\morris.min.js" />
     <Content Include="Assets\Admin\vendor\raphael\raphael.js" />
     <Content Include="Assets\Admin\vendor\raphael\raphael.min.js" />
+    <Content Include="Assets\Client\css\easy-responsive-tabs.css" />
+    <Content Include="Assets\Client\css\global.css" />
+    <Content Include="Assets\Client\css\slider.css" />
+    <Content Include="Assets\Client\css\style.css" />
+    <Content Include="Assets\Client\images\about_img.jpg" />
+    <Content Include="Assets\Client\images\arrow-next.png" />
+    <Content Include="Assets\Client\images\arrow-prev.png" />
+    <Content Include="Assets\Client\images\arrow_up.png" />
+    <Content Include="Assets\Client\images\compare.png" />
+    <Content Include="Assets\Client\images\delivery-img1.jpg" />
+    <Content Include="Assets\Client\images\delivery-img2.jpg" />
+    <Content Include="Assets\Client\images\delivery-img3.jpg" />
+    <Content Include="Assets\Client\images\dribbble.png" />
+    <Content Include="Assets\Client\images\drop_arrow-hover.png" />
+    <Content Include="Assets\Client\images\drop_arrow.png" />
+    <Content Include="Assets\Client\images\facebook.png" />
+    <Content Include="Assets\Client\images\feature-pic1.jpg" />
+    <Content Include="Assets\Client\images\feature-pic2.jpg" />
+    <Content Include="Assets\Client\images\feature-pic3.jpg" />
+    <Content Include="Assets\Client\images\feature-pic4.jpg" />
+    <Content Include="Assets\Client\images\linkedin.png" />
+    <Content Include="Assets\Client\images\list-img.png" />
+    <Content Include="Assets\Client\images\logo.png" />
+    <Content Include="Assets\Client\images\new-pic1.jpg" />
+    <Content Include="Assets\Client\images\new-pic2.jpg" />
+    <Content Include="Assets\Client\images\new-pic3.jpg" />
+    <Content Include="Assets\Client\images\new-pic4.jpg" />
+    <Content Include="Assets\Client\images\newsimg1.jpg" />
+    <Content Include="Assets\Client\images\newsimg2.jpg" />
+    <Content Include="Assets\Client\images\newsimg3.jpg" />
+    <Content Include="Assets\Client\images\preview.jpg" />
+    <Content Include="Assets\Client\images\price-rating.png" />
+    <Content Include="Assets\Client\images\productslide-1.jpg" />
+    <Content Include="Assets\Client\images\productslide-2.jpg" />
+    <Content Include="Assets\Client\images\productslide-3.jpg" />
+    <Content Include="Assets\Client\images\productslide-4.jpg" />
+    <Content Include="Assets\Client\images\productslide-5.jpg" />
+    <Content Include="Assets\Client\images\productslide-6.jpg" />
+    <Content Include="Assets\Client\images\quality-rating.png" />
+    <Content Include="Assets\Client\images\search.png" />
+    <Content Include="Assets\Client\images\skype.png" />
+    <Content Include="Assets\Client\images\slide-1-image.png" />
+    <Content Include="Assets\Client\images\slide-2-image.jpg" />
+    <Content Include="Assets\Client\images\slide-3-image.jpg" />
+    <Content Include="Assets\Client\images\tag.png" />
+    <Content Include="Assets\Client\images\thumbnailslide-1.jpg" />
+    <Content Include="Assets\Client\images\thumbnailslide-2.jpg" />
+    <Content Include="Assets\Client\images\thumbnailslide-3.jpg" />
+    <Content Include="Assets\Client\images\thumbnailslide-4.jpg" />
+    <Content Include="Assets\Client\images\thumbnailslide-5.jpg" />
+    <Content Include="Assets\Client\images\thumbnailslide-6.jpg" />
+    <Content Include="Assets\Client\images\twitter.png" />
+    <Content Include="Assets\Client\images\value-rating.png" />
+    <Content Include="Assets\Client\images\wishlist.png" />
+    <Content Include="Assets\Client\js\easing.js" />
+    <Content Include="Assets\Client\js\easyResponsiveTabs.js" />
+    <Content Include="Assets\Client\js\jquery-1.7.2.min.js" />
+    <Content Include="Assets\Client\js\jquery.accordion.js" />
+    <Content Include="Assets\Client\js\jquery.easing.js" />
+    <Content Include="Assets\Client\js\move-top.js" />
+    <Content Include="Assets\Client\js\script.js" />
+    <Content Include="Assets\Client\js\slides.min.jquery.js" />
+    <Content Include="Assets\Client\js\startstop-slider.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1551,6 +1614,8 @@
     <Content Include="Areas\Admin\Views\Feedback\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
+    <Content Include="Assets\Client\font\Amble-Regular-webfont.ttf" />
+    <Content Include="Assets\Client\images\Thumbs.db" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1602,6 +1667,7 @@
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1614,6 +1680,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\MainMenu.cshtml" />
+    <Content Include="Views\Shared\TopMenu.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1624,7 +1695,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Data\flash\" />
     <Folder Include="Models\" />
   </ItemGroup>

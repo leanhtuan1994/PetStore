@@ -61,6 +61,10 @@ namespace Domain.EF {
             get; set;
         }
 
+        public virtual DbSet<Footer> Footer {
+            get;    set;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<About>()
                 .Property(e => e.MetaTitle)
@@ -240,6 +244,8 @@ namespace Domain.EF {
             modelBuilder.Entity<User>()
                 .Property(e => e.ModifiedBy)
                 .IsUnicode(false);
+
+            
         }
     }
 }
