@@ -19,7 +19,7 @@ namespace Domain.DAO {
         }
 
         public IPagedList<OrderDetail> ListAllPaging(int page, int pageSize) {
-            return db.OrderDetail.OrderByDescending(o => o.OrderID).ToPagedList(page, pageSize);
+            return db.OrderDetail.Include(o => o.Orders).Include(o => o.Product).OrderByDescending(o => o.OrderID).ToPagedList(page, pageSize);
         }
 
         public OrderDetail GetByID(long? orderID, long? productID ) {

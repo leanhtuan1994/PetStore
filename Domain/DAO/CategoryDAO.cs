@@ -26,7 +26,7 @@ namespace Domain.DAO {
         }
 
         public IEnumerable<Category> ListAllPaging(int page, int pageSize) {
-            return db.Category.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            return db.Category.Include(p => p.Category2).OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
         public bool Create(Category category) {

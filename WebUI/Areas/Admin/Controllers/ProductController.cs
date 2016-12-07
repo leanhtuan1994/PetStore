@@ -15,6 +15,7 @@ namespace WebUI.Areas.Admin.Controllers
     public class ProductController : BaseController
     {
         private ProductDAO productDAO = new ProductDAO();
+        private ProductCategoryDAO productCategoryDAO = new ProductCategoryDAO();
 
         // GET: Admin/Product
         public ActionResult Index(int page = 1, int pageSize = 10){
@@ -108,7 +109,7 @@ namespace WebUI.Areas.Admin.Controllers
 
 
         public void SetViewBag(long? selectedID = null) {
-            ViewBag.CategoryID = new SelectList(productDAO.ListAll(), "ID", "Name", selectedID);
+            ViewBag.CategoryID = new SelectList(productCategoryDAO.ListAll(), "ID", "Name", selectedID);
         }
 
     }

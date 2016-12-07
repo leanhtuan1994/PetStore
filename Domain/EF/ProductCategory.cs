@@ -43,7 +43,7 @@
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Ngày Tạo")]
+        [DisplayName("Người Tạo")]
         public string CreatedBy { get; set; }
 
         [DisplayName("Ngày Sửa")]
@@ -52,7 +52,7 @@
         public DateTime? ModifiedDate { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Người Tạo")]
+        [DisplayName("Người Sửa")]
         public string ModifiedBy { get; set; }
 
         [StringLength(250)]

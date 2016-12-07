@@ -23,7 +23,7 @@ namespace Domain.DAO {
         }
 
         public IPagedList<Orders> ListAllPaging(int page, int pageSize) {
-            return db.Orders.OrderByDescending(x => x.OrderDate).ToPagedList(page, pageSize);
+            return db.Orders.Include(p => p.Customer).OrderByDescending(x => x.OrderDate).ToPagedList(page, pageSize);
         }
 
         public bool Create(Orders orders) {
