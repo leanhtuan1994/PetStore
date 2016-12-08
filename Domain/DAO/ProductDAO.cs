@@ -34,6 +34,14 @@ namespace Domain.DAO {
                 .ToPagedList(page, pageSize);
         }
 
+        public IEnumerable<Product> ListOfCategory(long cateID, int top = 3) {
+            return db.Product.Include(p => p.ProductCategory)
+                .Where(p => p.CategoryID == cateID)
+                .Take(top)
+                .OrderByDescending(x => x.CreatedDate)  
+                .ToList();
+        }
+
         public IEnumerable<Product> ListNewProduct(int top) {
             return db.Product.Include(p => p.ProductCategory).OrderByDescending(x => x.CreatedDate).Take(top).ToList();
         }

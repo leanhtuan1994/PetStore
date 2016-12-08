@@ -7,13 +7,15 @@
 <div class="col-md-3 product-price">
     <div class="rsidebar span_1_of_left">
         <div class="of-left">
-            <h3 class="cate"> GIỐNG CHÓ  </h3>
+            <h3 class="cate"> Giống Chó  </h3>
         </div>
         <ul class="menu">
             @foreach (var item in Model) {
                 var url = "/san-pham/" + item.MetaTitle + "-" + item.ID;
-                <li class="item1">
-                    <a href="@url" target="_self"> @item.Name </a>
+                <li class="item" >
+                    <a href="@url" target="_self"> 
+                        @item.Name
+                    </a>
                 </li>
             }
         </ul>
@@ -31,7 +33,7 @@
     <!-- TAG -->
     <div class="sellers">
         <div class="of-left-in">
-            <h3 class="tag">TAGS </h3>
+            <h3 class="tag"> Tags </h3>
         </div>
         <div class="tags">
             <ul>
@@ -48,7 +50,7 @@
     <!---->
     <div class="product-bottom">
         <div class="of-left-in">
-            <h3 class="best"> MUA NHIỀU </h3>
+            <h3 class="best"> Mua nhiều </h3>
         </div>
         <div class="product-go">
             @foreach (var item in listFeatureProduct) {

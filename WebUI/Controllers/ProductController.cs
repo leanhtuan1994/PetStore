@@ -53,6 +53,7 @@ namespace WebUI.Controllers
         /// <returns></returns>
         public ActionResult Detail(long id) {
             var model = new ProductDAO().GetByID(id);
+            ViewBag.ListProductOfCategory = new ProductDAO().ListOfCategory(model.CategoryID.Value, 3);
             return View(model);
         }
 

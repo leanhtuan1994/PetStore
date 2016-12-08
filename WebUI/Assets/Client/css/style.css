@@ -876,7 +876,9 @@ ul.kid-menu{
 	
 }
 .menu > li > a:hover{
-	color:#EF5F21;
+
+	color: antiquewhite;
+    background-color: #EF5F21;
 }
 .menu ul li a {	
 	width: 100%;
@@ -890,7 +892,8 @@ ul.kid-menu{
 	text-indent: 1.2em;
 }
 .menu ul li a:hover{
-	color:#EF5F21;
+	color: antiquewhite;
+    background-color: #EF5F21;
 }
 ul.kid-menu li,.menu ul li{
 	list-style: none;	
@@ -914,7 +917,7 @@ h3.best {
 }
 /*----*/
 .product-middle{
-	background: url(../images/product1.jpg) center;
+	background: url(../../../Data/images/imgtopf.png) center;
   width: 100%;
   min-height: 45px;
   display: block;

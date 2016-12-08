@@ -2,7 +2,154 @@
 @{
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var listProductOfCategory = (IEnumerable<Domain.EF.Product>)ViewBag.ListProductOfCategory;
 }
 
-<h2> @Model.Name </h2>
+<script src="/Assets/Client/js/main.js"></script>
+<script src="/Assets/Client/js/simpleCart.min.js"></script>
+
+<div class="product">
+    <div class="container">
+        @{ Html.RenderAction("LeftMenu", "Product"); }
+        <div class="col-md-9 product-price1">
+            <div class="col-md-5 single-top">
+                <div class="flexslider">
+                    <ul class="slides">
+                        @for (int i = 0; i < 4; i++) {
+                            <li data-thumb="@Model.Image">
+                                <img src="@Model.Image" />
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <!-- FlexSlider -->
+                <script defer src="~/Assets/Client/js/jquery.flexslider.js"></script>
+                <link rel="stylesheet" href="~/Assets/Client/css/flexslider.css" type="text/css" media="screen" />
+
+                <script>
+                    //  $(document).ready()
+                    $(window).load(function () {
+                        $('.flexslider').flexslider({
+                            animation: "slide",
+                            controlNav: "thumbnails"
+                        });
+                    });
+                </script>
+            </div>
+            <div class="col-md-7 single-top-in simpleCart_shelfItem">
+                <div class="single-para">
+                    <h4> @Model.Name </h4>
+                    <div class="star-on">
+                        <ul class="star-footer">
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                        </ul>
+                        <div class="review">
+                            <a href="#"> @Model.ViewCount người mua.</a>
+
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                    <h5 class="item_price"> @Model.Price </h5>
+                    <p>
+                        @Model.MetaDescription
+                    </p>
+
+                    <ul class="tag-men">
+                        <li>
+                            <span> MÃ  CODE</span>
+                            <span class="women1"> @Model.Code </span>
+                        </li>
+                        <li>
+                            <span>   TRẠNG THÁI </span>
+                            <span class="women1"> @( Model.Status.Value ? "CÒN HÀNG" : "HẾT HÀNG" )</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="add-cart item_add"> THÊM VÀO GIỎ </a>
+
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+            <!---->
+
+
+            <div class="cd-tabs">
+                <nav>
+                    <ul class="cd-tabs-navigation">
+                        <li><a data-content="mota" href="#0" class="selected"> Mô Tả </a></li>
+                        <li><a data-content="chitiet" href="#0"> Thông Tin Chi Tiết </a></li>
+                        <li><a data-content="danhgia" href="#0"> Đánh Giá </a></li>
+
+                    </ul>
+                </nav>
+                <ul class="cd-tabs-content">
+                    <li data-content="mota" class="selected">
+                        <div class="facts">
+                            <p>
+                                @Model.Description
+                            </p>
+                        </div>
+                    </li>
+                    <li data-content="chitiet">
+                        <div class="facts1">
+                            <div class="color">
+                                @Html.Raw(Model.Detail)
+                            </div>
+                        </div>
+                    </li>
+                    <li data-content="danhgia">
+                        <div class="comments-top-top">
+                            <div class="top-comment-left">
+                                <img class="img-responsive" src="~/Assets/Client/images/co.png" alt="">
+                            </div>
+                            <div class="top-comment-right">
+                                <h6><a href="#"> Tuan Anh Le </a> - 15/12/2016 </h6>
+                                <ul class="star-footer">
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                </ul>
+                                <p> Tuyệt đẹp </p>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <a class="add-re" href="#"> Đánh giá </a>
+                        </div>
+
+                    </li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+
+            <div class="bottom-product">
+                @foreach (var item in listProductOfCategory) {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                        <div class="product-at ">
+                            <a href="@url">
+                                <img class="img-responsive" src="@item.Image" alt="">
+                                <div class="pro-grid">
+                                    <span class="buy-in"> Chi tiết </span>
+                                </div>
+                            </a>
+                        </div>
+                        <p class="tun"> @item.Name </p>
+                        <a href="#" class="item_add"><p class="number item_price"><i> </i> @item.Price </p></a>
+                    </div>
+                }
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+
+
+
 
