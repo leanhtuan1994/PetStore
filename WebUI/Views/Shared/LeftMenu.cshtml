@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Domain.EF.ProductCategory>
+
+@{
+    var listTag = (IEnumerable<Domain.EF.Tag>)ViewBag.ListTag;
+    var listFeatureProduct = (IEnumerable<Domain.EF.Product>)ViewBag.ListFeatureProduct;
+}
+<div class="col-md-3 product-price">
+    <div class="rsidebar span_1_of_left">
+        <div class="of-left">
+            <h3 class="cate"> GIỐNG CHÓ  </h3>
+        </div>
+        <ul class="menu">
+            @foreach (var item in Model) {
+                var url = "/san-pham/" + item.MetaTitle + "-" + item.ID;
+                <li class="item1">
+                    <a href="@url" target="_self"> @item.Name </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="product-middle">
+        <div class="fit-top">
+            <h6 class="shop-top"> Chó hiếm </h6>
+            <a href="/" class="shop-now"> MUA NGAY </a>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+
+    <!-- TAG -->
+    <div class="sellers">
+        <div class="of-left-in">
+            <h3 class="tag">TAGS </h3>
+        </div>
+        <div class="tags">
+            <ul>
+                @foreach (var item in listTag) {
+                    <li><a href="#"> @item.Name </a></li>
+                }
+
+                <div class="clearfix"> </div>
+            </ul>
+
+        </div>
+
+    </div>
+    <!---->
+    <div class="product-bottom">
+        <div class="of-left-in">
+            <h3 class="best"> MUA NHIỀU </h3>
+        </div>
+        <div class="product-go">
+            @foreach (var item in listFeatureProduct) {
+                <div class="fashion-grid">
+                    <a href="single.html"><img class="img-responsive " src="@item.Image" alt=""></a>
+                </div>
+                <div class="fashion-grid1">
+                    <h6 class="best2">
+                        <a href="/">
+                            @item.Name
+                        </a>
+                    </h6>
+                    <span class="price-in1"> @item.Price </span>
+                </div>
+                <div class="clearfix"> </div>
+            }
+        </div>
+    </div>
+
+    <div class="per1">
+        <a href="single.html">
+            <img class="img-responsive" src="~/Assets/Client/images/pro.jpg" alt="">
+            <div class="six1">
+                <h4>DISCOUNT</h4>
+                <p>Up to</p>
+                <span>60%</span>
+            </div>
+        </a>
+    </div>
+</div>
+

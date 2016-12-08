@@ -13,6 +13,10 @@
         public long ID { get; set; }
 
         [StringLength(250)]
+        [DisplayName(" Tên ")]
+        public string Name { get; set; }
+
+        [StringLength(250)]
         [DisplayName("Hình Ảnh")]
         public string Image { get; set; }
 

@@ -18,7 +18,7 @@ namespace WebUI.Controllers
         public ActionResult Index()
         {
             ViewBag.Slides = new SlideDAO().ListAll();
-            ViewBag.ListNewProduct = new ProductDAO().ListNewProduct(4);
+            ViewBag.ListNewProduct = new ProductDAO().ListNewProduct(6);
             ViewBag.ListFeatureProduct = new ProductDAO().ListFeatureProduct(4);
             return View();
         }
@@ -30,6 +30,7 @@ namespace WebUI.Controllers
         [ChildActionOnly]
         public ActionResult MainMenu() {
             var model = new MenuDAO().ListByGroupID(1);
+            ViewBag.ProductCategory = new ProductCategoryDAO().ListAll();
             return PartialView(model);
         }
 

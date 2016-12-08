@@ -73,6 +73,7 @@
     <Compile Include="DAO\ProductCategoryDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\SlideDAO.cs" />
+    <Compile Include="DAO\TagDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="EF\About.cs" />
     <Compile Include="EF\Category.cs" />

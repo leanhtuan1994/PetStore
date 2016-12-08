@@ -1,86 +1,38 @@
 ﻿
-<!DOCTYPE HTML>
-<html> 
+<!DOCTYPE html>
+<html>
 <head>
     <title> PUPPY </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/Assets/Client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Assets/Client/js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
     <link href="~/Assets/Client/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="~/Assets/Client/css/slider.css" rel="stylesheet" type="text/css" media="all" />
-    <script type="text/javascript" src="~/Assets/Client/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="~/Assets/Client/js/move-top.js"></script>
-    <script type="text/javascript" src="~/Assets/Client/js/easing.js"></script>
-    <script type="text/javascript" src="~/Assets/Client/js/startstop-slider.js"></script>
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Puppy Shop" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <!-- start menu -->
+    <link href="~/Assets/Client/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="~/Assets/Client/js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+    <script src="~/Assets/Client/js/simpleCart.min.js"> </script>
 </head>
 <body>
-    <div class="wrap">
-        <div class="header">
-            <div class="headertop_desc">
-                @{ Html.RenderAction("TopMenu", "Home");}
-            </div>
-            <div class="header_top">
-                <div class="logo">
-                    <a href="index.html"><img src="~/Assets/Client/images/logo.png" alt="" /></a>
-                </div>
-                <div class="cart">
-                    <p>
-                        Chào Bạn đến với Puppy Shop <span> Giỏ hàng </span><div id="dd" class="wrapper-dropdown-2">
-                            0 sản phẩm - 0.00đ
-                            <ul class="dropdown">
-                                <li>Bạn chưa có mặt hàng nào trong giỏ </li>
-                            </ul>
-                        </div>
-                    </p>
-                </div>
-                <script type="text/javascript">
-                    function DropDown(el) {
-                        this.dd = el;
-                        this.initEvents();
-                    }
-                    DropDown.prototype = {
-                        initEvents: function () {
-                            var obj = this;
-
-                            obj.dd.on('click', function (event) {
-                                $(this).toggleClass('active');
-                                event.stopPropagation();
-                            });
-                        }
-                    }
-
-                    $(function () {
-
-                        var dd = new DropDown($('#dd'));
-
-                        $(document).click(function () {
-                            // all dropdowns
-                            $('.wrapper-dropdown-2').removeClass('active');
-                        });
-
-                    });
-
-                </script>
-                <div class="clear"></div>
-            </div>
-            <div class="header_bottom">
-                @{ Html.RenderAction("MainMenu", "Home"); }
-            </div>
-            @RenderSection("slide", required: false)
-        </div>
-        <div class="main">
-            @RenderBody()
-        </div>
+    <!--header-->
+    <div class="header">
+        @{ Html.RenderAction("TopMenu", "Home");}
+        @{ Html.RenderAction("MainMenu", "Home");}
     </div>
-    <div class="footer">
-        @{ Html.RenderAction("Footer", "Home"); }
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $().UItoTop({ easingType: 'easeOutQuart' });
-
-        });
-    </script>
-    <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+    @RenderSection("banner", required: false);
+    @RenderBody();
+    @{ Html.RenderAction("Footer", "Home");}
+   
 </body>
 </html>
-

@@ -5,102 +5,127 @@
     var slides = (IEnumerable<Domain.EF.Slide>)ViewBag.Slides;
     var listNewProduct = (IEnumerable<Domain.EF.Product>)ViewBag.ListNewProduct;
     var listFeatureProduct = (IEnumerable<Domain.EF.Product>)ViewBag.ListFeatureProduct;
+    var i = 1;
 }
 
-@section slide {
-    <div class="header_slide">
-        <div class="header_bottom_left">
-            @{ Html.RenderAction("ProductCategory", "Product"); }
-        </div>
-        <div class="header_bottom_right">
-            <div class="slider">
-                <div id="slider">
-                    <div id="mover">
-                        @foreach (var item in slides) {
-                            <div id="slide-1" class="slide">
-                                <div class="slider-img">
-                                    <a href="@item.Link"><img src="@item.Image" alt="learn more" /></a>
-                                </div>
-                                <div class="slider-text">
-                                    <h1> CHÓ <br><span> ĐẶC BIỆT </span> </h1>
-                                    <h2> Giảm 20%</h2>
-                                    <div class="features_list">
-                                        <h4> Giống chó đặc biệt được nhập từ châu Âu, số lượng có hạng.</h4>
-                                    </div>
-                                    <a href="preview.html" class="button"> Mua Ngay </a>
-                                </div>
-                                <div class="clear"></div>
+@section banner {
+    <div class="banner">
+        <div class="container">
+            <script src="~/Assets/Client/js/responsiveslides.min.js"></script>
+            <script>
+                $(function () {
+                    $("#slider").responsiveSlides({
+                        auto: true,
+                        nav: true,
+                        speed: 500,
+                        namespace: "callbacks",
+                        pager: true,
+                    });
+                });
+            </script>
+            <div id="top" class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    @foreach (var item in slides) {
+                        <li>
+                            <div class="banner-text">
+                                <h3> @item.Name  </h3>
+                                <p>
+                                    @item.Description
+                                </p>
+                                <a href="@item.Link"> Xem  </a>
                             </div>
-                        }
-                    </div>
-                </div>
-                <div class="clear"></div>
+
+                        </li>
+                    }
+                </ul>
             </div>
+
         </div>
-        <div class="clear"></div>
     </div>
 }
-
 
 <div class="content">
-    <div class="content_top">
-        <div class="heading">
-            <h3> Giống Chó Mới </h3>
-        </div>
-        <div class="see">
-            <p><a href="/san-pham"> Xem tất cả </a></p>
-        </div>
-        <div class="clear"></div>
-    </div>
+    <div class="container">
+        <div class="content-top">
+            <h1> GIỐNG CHÓ MỚI </h1>
+            <div class="grid-in">
+                @foreach (var item in listNewProduct) {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <div class="col-md-4 grid-top">
+                        <a href="@url" class="b-link-stripe b-animate-go  thickbox">
+                            <img class="img-responsive" src="@item.Image" alt="">
+                            <div class="b-wrapper">
+                                <h3 class="b-animate b-from-left    b-delay03 ">
+                                    <span>  @item.ProductCategory.Name  </span>
+                                </h3>
+                            </div>
+                        </a>
 
-    <div class="section group">
-        @foreach (var item in listNewProduct) {
-            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="@url"><img src="@item.Image" alt="@item.Name" /></a>
-                <h2>@item.Name </h2>
-                <div class="price-details">
-                    <div class="price-number">
-                        <p><span class="rupees"> @item.Price </span></p>
+                        <p><a href="#"> @item.Name </a></p>
                     </div>
-                    <div class="add-cart">
-                        <h4><a href="@url"> Thêm vào Giỏ </a></h4>
+                    if (i % 3 == 0) {
+                        <div style="height: 15px" class="col-md-12"> </div>
+                    }
+                    i++;
+                }
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+        <div class="content-top-bottom">
+            <h2>Featured Collections</h2>
+            <div class="col-md-6 men">
+                <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
+                    <img class="img-responsive" src="/Assets/Client/images/t1.jpg" alt="">
+                    <div class="b-wrapper">
+                        <h3 class="b-animate b-from-top top-in   b-delay03 ">
+                            <span>Lorem</span>
+                        </h3>
                     </div>
-                    <div class="clear"></div>
+                </a>
+
+
+            </div>
+            <div class="col-md-6">
+                <div class="col-md1 ">
+                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
+                        <img class="img-responsive" src="/Assets/Client/images/t2.jpg" alt="">
+                        <div class="b-wrapper">
+                            <h3 class="b-animate b-from-top top-in1   b-delay03 ">
+                                <span>Lorem</span>
+                            </h3>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="col-md2">
+                    <div class="col-md-6 men1">
+                        <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
+                            <img class="img-responsive" src="/Assets/Client/images/t3.jpg" alt="">
+                            <div class="b-wrapper">
+                                <h3 class="b-animate b-from-top top-in2   b-delay03 ">
+                                    <span>Lorem</span>
+                                </h3>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="col-md-6 men2">
+                        <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
+                            <img class="img-responsive" src="/Assets/Client/images/t4.jpg" alt="">
+                            <div class="b-wrapper">
+                                <h3 class="b-animate b-from-top top-in2   b-delay03 ">
+                                    <span>Lorem</span>
+                                </h3>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="clearfix"> </div>
                 </div>
             </div>
-        }
-    </div>
-
-
-
-    <div class="content_bottom">
-        <div class="heading">
-            <h3> Chó Mua Nhiều </h3>
+            <div class="clearfix"> </div>
         </div>
-        <div class="see">
-            <p><a href="/san-pham">Xem tất cả </a></p>
-        </div>
-        <div class="clear"></div>
     </div>
-    <div class="section group">
-        @foreach (var item in listFeatureProduct) {
-            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="@url"><img src="@item.Image" alt="" /></a>
-                <h2> @item.Name </h2>
-                <div class="price-details">
-                    <div class="price-number">
-                        <p><span class="rupees"> @item.Price </span></p>
-                    </div>
-                    <div class="add-cart">
-                        <h4><a href="@url"> Thêm vào Giỏ </a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-        }
-    </div>
-
-
+    <!---->
 </div>

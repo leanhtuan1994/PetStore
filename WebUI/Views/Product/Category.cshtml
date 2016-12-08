@@ -1,8 +1,47 @@
-﻿@model Domain.EF.ProductCategory
+﻿@model PagedList.IPagedList<Domain.EF.Product>
+@using PagedList.Mvc;
+
 @{
-    ViewBag.Title = Model.Name;
+    ViewBag.Title = "ListCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 
-<h2> @Model.Name </h2>
+<div class="product">
+    <div class="container">
+        @{ Html.RenderAction("LeftMenu", "Product"); }
+        <div class="col-md-9 product1">
+            <div class="bottom-product">
+                @foreach (var item in Model) {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                        <div class="product-at">
+                            <a href="@url">
+                                <img class="img-responsive" src="@item.Image" alt="">
+                                <div class="pro-grid">
+                                    <span class="buy-in"> Chi Tiết </span>
+                                </div>
+                            </a>
+                        </div>
+                        <p class="tun" style="font-weight: bold"> @item.Name </p>
+                        <a href="#" class="item_add"><p class="number item_price"><i> </i> @item.Price </p> </a>
+                    </div>
 
+                    if (i % 3 == 0) {
+                        <div class="col-md-12" style="height: 25px"> </div>
+                    }
+                    i++;
+                }
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+            <nav class="in">
+                <ul class="pagination">
+                    @Html.PagedListPager(Model, page => Url.Action("ListCategory", new { page }))
+                </ul>
+
+            </nav>
+        </div>
+
+    </div>
+</div>

@@ -1,17 +1,24 @@
 ﻿@model IEnumerable<Domain.EF.Menu>
 
+@{
+    var productCategory = (IEnumerable<Domain.EF.ProductCategory>)ViewBag.ProductCategory;
+}
 
-<div class="menu">
-    <ul>
-        @foreach (var item in Model) {
-            <li><a href="@item.Link" target="@item.Target"> @item.Text </a></li>
-        }
-    </ul>
-    <div class="clear"> </div>
+<div class="container">
+    <div class="head-top">
+        <div class="logo">
+            <a href="/"><img src="~/Assets/Client/images/logo1.png" alt=""></a>
+        </div>
+        <div class="h_menu4">
+            <ul class="memenu skyblue">
+                @foreach (var item in Model) {
+                    <li>
+                        <a class="color1" href="@item.Link" target="@item.Target">  @item.Text </a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>
 </div>
-<div class="search_box">
-    <form>
-        <input type="text" value="Tìm kiếm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
-    </form>
-</div>
-<div class="clear"></div>
