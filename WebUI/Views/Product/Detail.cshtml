@@ -5,8 +5,32 @@
     var listProductOfCategory = (IEnumerable<Domain.EF.Product>)ViewBag.ListProductOfCategory;
 }
 
-<script src="/Assets/Client/js/main.js"></script>
-<script src="/Assets/Client/js/simpleCart.min.js"></script>
+
+@section JSFooter {
+    <script src="/Assets/Client/js/main.js"></script>
+    <script src="/Assets/Client/js/simpleCart.min.js"></script>
+}
+
+<script>
+    $(document).ready(function (c) {
+        $('#addCartItem').off('click').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).data("id");
+
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                url: '/Cart/AddItem',
+                data: "{'id': ' " + id + " '}",
+                success: function (data) {
+                    $('#totalHeader').text(data.total);
+                    $('#countItem').text(data.count);
+                    $('#statusCart').text("");
+                }
+            })
+        });
+    });
+</script>
 
 <div class="product">
     <div class="container">
@@ -69,7 +93,7 @@
                             <span class="women1"> @( Model.Status.Value ? "CÒN HÀNG" : "HẾT HÀNG" )</span>
                         </li>
                     </ul>
-                    <a href="/them-gio-hang/?id=@Model.ID&quantity=1" class="add-cart item_add"> THÊM VÀO GIỎ </a>
+                    <a href="#" class="add-cart item_add" id="addCartItem" data-id="@Model.ID"> THÊM VÀO GIỎ </a>
 
                 </div>
             </div>

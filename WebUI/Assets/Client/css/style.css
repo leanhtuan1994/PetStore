@@ -1620,7 +1620,7 @@ a.create {
 	font-weight:400;
 } 
 
-.close1,.close2{
+.close1,.close2,.close3, .close4,.close5,.close6,.close7,.close8,.close9,.close10,.close11,.close12,.close13{
   background: url('../images/close_1.png') no-repeat 0px 0px;
   cursor: pointer;
   width: 28px;
@@ -1633,10 +1633,10 @@ a.create {
   -o-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
 }
-.cart-header {  
+.cart-header , .cart-header1{  
   position: relative;  
 }
-.cart-header2 {  
+.cart-header2 , .cart-header3 {  
   position: relative;  
 }
 a.order {

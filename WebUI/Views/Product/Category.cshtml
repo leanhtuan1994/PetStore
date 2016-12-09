@@ -7,6 +7,10 @@
     var i = 1;
 }
 
+@section JSFooter {
+    <script src="/Assets/Client/js/controllers/cartController.js"></script>
+}
+
 <div class="product">
     <div class="container">
         @{ Html.RenderAction("LeftMenu", "Product"); }
@@ -14,6 +18,30 @@
             <div class="bottom-product">
                 @foreach (var item in Model) {
                     var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    var addCartID = "addCartItem" + item.ID;
+
+                    <script>
+                        $(document).ready(function (c) {
+                            $('#@addCartID').off('click').on('click', function (event) {
+                                event.preventDefault();
+                                var id = $(this).data("id");
+
+                                $.ajax({
+                                    type: 'POST',
+                                    contentType: 'application/json; charset=utf-8',
+                                    url: '/Cart/AddItem',
+                                    data: "{'id': ' " + id + " '}",
+                                    success: function (data) {
+                                        $('#totalHeader').text(data.total);
+                                        $('#countItem').text(data.count);
+                                        $('#statusCart').text("");
+                                    }
+                                })
+                            });
+                        });
+                    </script>
+
+
                     <div class="col-md-4 bottom-cd simpleCart_shelfItem">
                         <div class="product-at">
                             <a href="@url">
@@ -24,7 +52,11 @@
                             </a>
                         </div>
                         <p class="tun" style="font-weight: bold"> @item.Name </p>
-                        <a href="/them-gio-hang/?id=@item.ID&quantity=1" class="item_add"><p class="number item_price"><i> </i> @item.Price </p> </a>
+                        <a class="item_add">
+                            <p class="number item_price" id="@addCartID" data-id="@item.ID">
+                                <i> </i> @item.Price
+                            </p>
+                        </a>
                     </div>
 
                     if (i % 3 == 0) {

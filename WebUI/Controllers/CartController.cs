@@ -39,16 +39,17 @@ namespace WebUI.Controllers
         /// <returns></returns>
         /// 
         
-        public ActionResult AddItem(long id, int quantity) {
+        [HttpPost]
+        public JsonResult AddItem(int id) {
             var product = new ProductDAO().GetByID(id);
             var cart = Session[CommonConstant.CART_SESSION];        
             if ( cart != null ) {
                 // Nếu đã có giỏ hàng
-                var listCart =  (List<CartItem>)Session[CommonConstant.CART_SESSION];
+                var list =  (List<CartItem>)Session[CommonConstant.CART_SESSION];
                 
                 // Nếu sản phẩm đã có trong giỏ hàng.
-                if( listCart.Exists( x => x.Product.ID == product.ID) ) {
-                    foreach (var item in listCart) {
+                if( list.Exists( x => x.Product.ID == product.ID) ) {
+                    foreach (var item in list) {
                         if (item.Product.ID == product.ID) {
                             item.Quantity++;
                         }
@@ -56,24 +57,34 @@ namespace WebUI.Controllers
                 } else {
                     var item = new CartItem();
                     item.Product = product;
-                    item.Quantity = quantity;
+                    item.Quantity = 1;
 
-                    listCart.Add(item);
+                    list.Add(item);
                 }      
                 // Gán vào sesion
-                Session[CommonConstant.CART_SESSION] = listCart;
+                Session[CommonConstant.CART_SESSION] = list;
             } else {
                 // Giỏ hàng chưa có.
                 var item = new CartItem();
                 item.Product = product;
-                item.Quantity = quantity;
-                var listCart = new List<CartItem>();
-                listCart.Add(item);
+                item.Quantity = 1;
+                var list = new List<CartItem>();
+                list.Add(item);
 
                 // Gán vào sesion
-                Session[CommonConstant.CART_SESSION] = listCart;              
+                Session[CommonConstant.CART_SESSION] = list;              
             }
-            return RedirectToAction("Index");
+
+            var listCart = (List<CartItem>)Session[CommonConstant.CART_SESSION];
+            decimal total = 0;
+            int count = 0;
+            foreach (var item in listCart) {
+                total += (item.Product.Price * item.Quantity).Value;
+                count++;
+            }
+
+            var data = new { total, count };
+            return Json(data);        
         }
 
         /// <summary>
@@ -98,7 +109,12 @@ namespace WebUI.Controllers
                 total += (item.Product.Price * item.Quantity).Value;
             }
 
-            return Json(total);  
+            var data = new {
+                totalData = total,
+                count = listCart.Count
+            };
+
+            return Json(data);  
         }
 
 
