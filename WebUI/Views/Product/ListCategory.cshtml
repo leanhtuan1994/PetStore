@@ -8,6 +8,7 @@
     var i = 1;
 }
 
+
 <div class="product">
     <div class="container">
         @{ Html.RenderAction("LeftMenu", "Product"); }
@@ -25,7 +26,8 @@
                             </a>
                         </div>
                         <p class="tun" style="font-weight: bold"> @item.Name </p>
-                        <a href="#" class="item_add"><p class="number item_price"><i> </i> @item.Price </p></a>
+                        <!-- Thêm vào giỏ hàng ở đây  -->
+                        <a  href="/them-gio-hang/?id=@item.ID&quantity=1" class="item_add"><p class="number item_price"><i> </i> @item.Price </p></a>
                     </div>
 
                     if (i % 3 == 0) {

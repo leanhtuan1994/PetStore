@@ -1,0 +1,96 @@
+﻿@model List<WebUI.Models.CartItem>
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var i = 1;
+    decimal total = 0;
+}
+
+@section JSFooter {
+<script src="/Assets/Client/js/controllers/cartController.js"></script>
+}
+
+<div class="container">
+    <div class="check">
+        <h1> GIỎ HÀNG  </h1>
+        <div class="col-md-9 cart-items">
+            @foreach (var item in Model) {
+                var close = "close" + i;
+                var cartheader = "cart-header" + i;
+                total += (item.Quantity * item.Product.Price).Value;
+                <!-- Script xóa nhah danh sách sản phẩm trong giỏ hàng  -->
+                <script>
+                    $(document).ready(function (c) {
+                        $('.@close').on('click', function (c) {
+
+                            var id = $(this).data("id");
+                            
+                            // Ajax gọi đến deleteCartItem để xóa 1 item
+                            $.ajax({
+                                type: 'POST',
+                                contentType: 'application/json; charset=utf-8',
+                                url: '/Cart/DeleteCartItem',
+                                data: "{'id': ' " + id + " '}",
+                                success: function (data) {
+                                    $('.total').text(data);
+                                }
+                            })
+
+                            $('.@cartheader').fadeOut('slow', function (c) {
+                                $('.@cartheader').remove();
+                            });
+                        });
+                    });
+                </script>
+
+                <div class="@cartheader" >
+                    <div class="@close" data-id="@item.Product.ID"> </div>
+                    <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                            <img src="@item.Product.Image" class="img-responsive" alt="" />
+                        </div>
+                        <div class="cart-item-info">
+                            <h3><a href="#"> @item.Product.Name</a><span>CODE: @item.Product.Code</span></h3>
+                            <ul class="qty">
+                                <li><p> Số lượng: @item.Quantity </p></li>
+                                <li><p> Đơn giá: @item.Product.Price </p></li>
+                            </ul>
+
+                            <div class="delivery">
+                                <p> Thành tiền: @( item.Product.Price * item.Quantity ) </p>
+                                <span> Chó được giao ngay trong ngày.</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+                i++;
+            }
+        </div>
+        <div class="col-md-3 cart-total">
+            <a class="continue" id="btnContinue"> TIẾP TỤC MUA HÀNG </a>
+            <div class="price-details">
+                <h3> Thông tin Giá </h3>
+                <span> Tổng </span>
+                <span class="total1" id="total"> @total </span>
+                <span> Giá giảm </span>
+                <span class="total1">---</span>
+                <div class="clearfix"></div>
+            </div>
+            <ul class="total_price">
+                <li class="last_price"> <h4> TỔNG TIỀN </h4></li>
+                <li class="last_price" id="total"><span> @total </span></li>
+                <div class="clearfix"> </div>
+            </ul>
+
+
+            <div class="clearfix"></div>
+            <a class="order" href="#"> THANH TOÁN </a>
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>

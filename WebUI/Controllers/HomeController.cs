@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Domain.DAO;
+using WebUI.Common;
+using WebUI.Models;
 
 namespace WebUI.Controllers
 {
@@ -34,12 +36,20 @@ namespace WebUI.Controllers
             return PartialView(model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [ChildActionOnly]
         public ActionResult TopMenu() {
             var model = new MenuDAO().ListByGroupID(2);
             return PartialView(model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [ChildActionOnly]
         public ActionResult Footer() {
             var model = new FooterDAO().GetFooter();
@@ -47,6 +57,27 @@ namespace WebUI.Controllers
         }
 
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [ChildActionOnly]
+        public PartialViewResult HeaderCart() {
+            var cart = Session[CommonConstant.CART_SESSION];
+            var listCart = new List<CartItem>();
+            if (cart != null) {
+                listCart = (List<CartItem>)cart;
+            }
+
+            decimal total = 0;
+            foreach(var item in listCart) {
+                total += (item.Product.Price * item.Quantity).Value;
+            }
+            ViewBag.total = total;
+
+            return PartialView(listCart);
+        }
 
 
     }

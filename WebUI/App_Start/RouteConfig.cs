@@ -44,6 +44,7 @@ namespace WebUI
                namespaces: new[] { "WebUI.Controllers" }
            );
 
+            // Trang giới thiệu 
             routes.MapRoute(
                name: "About",
                url: "gioi-thieu",
@@ -52,6 +53,31 @@ namespace WebUI
                },
                namespaces: new[] { "WebUI.Controllers" }
            );
+
+            //Thêm giỏ hàng
+            routes.MapRoute(
+                name: "Add Cart",
+                url: "them-gio-hang",
+                defaults: new {
+                    controller = "Cart", action = "AddItem", id = UrlParameter.Optional
+                },
+                namespaces: new[] { "WebUI.Controllers" }
+            );
+
+
+            //Trang giỏ hàng
+            routes.MapRoute(
+                name: "Cart",
+                url: "gio-hang",
+                defaults: new {
+                    controller = "Cart", action = "Index", id = UrlParameter.Optional
+                },
+                namespaces: new[] { "WebUI.Controllers" }
+            );
+
+
+
+
 
             routes.MapRoute(
                name: "Default",

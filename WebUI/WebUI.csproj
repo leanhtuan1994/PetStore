@@ -1320,6 +1320,7 @@
     <Content Include="Assets\Client\images\t3.jpg" />
     <Content Include="Assets\Client\images\t4.jpg" />
     <Content Include="Assets\Client\images\tick1.png" />
+    <Content Include="Assets\Client\js\controllers\cartController.js" />
     <Content Include="Assets\Client\js\jquery.flexslider.js" />
     <Content Include="Assets\Client\js\jquery.min.js" />
     <Content Include="Assets\Client\js\main.js" />
@@ -1660,11 +1661,13 @@
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1685,6 +1688,8 @@
     <Content Include="Views\Product\Category.cshtml" />
     <Content Include="Views\Product\ListCategory.cshtml" />
     <Content Include="Views\Shared\LeftMenu.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1696,7 +1701,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Data\flash\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
