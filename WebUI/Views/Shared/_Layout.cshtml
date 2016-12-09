@@ -8,7 +8,7 @@
     <script src="~/Assets/Client/js/jquery.min.js"></script>
     <!-- Custom Theme files -->
     <!--theme-style-->
-    <link href="~/Assets/Client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Assets/Client/css/stylefinishfinalfixed.css" rel="stylesheet" type="text/css" media="all" />
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,11 +30,11 @@
         @{ Html.RenderAction("TopMenu", "Home");}
         @{ Html.RenderAction("MainMenu", "Home");}
     </div>
-    @RenderSection("banner", required: false);
+    @RenderSection("banner", required: false)
     @RenderBody();
     @{ Html.RenderAction("Footer", "Home");}
 
    
-    @RenderSection("JSFooter", required: false);
+    @RenderSection("JSFooter", required: false)
 </body>
 </html>

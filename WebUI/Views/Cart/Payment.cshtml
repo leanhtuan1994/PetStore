@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="register">
+        <h1> THÔNG TIN ĐƠN HÀNG</h1>
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post)) {
+                <div class="col-md-6 register-top-grid">
+                    <h3> THÔNG TIN KHÁCH HÀNG </h3>
+                    <div>
+                        <span>Họ Tên</span>
+                        <input type="text" name="name">
+                    </div>
+                    <div>
+                        <span>Địa Chỉ</span>
+                        <input type="text" name="address">
+                    </div>
+                    <div>
+                        <span>Email</span>
+                        <input type="text" name="email">
+                    </div>
+                    <div>
+                        <span>Số Điện Thoại</span>
+                        <input type="text" name="phone">
+                    </div>
+                </div>
+
+                <div class="col-md-6 register-bottom-grid">
+                    <h3>  NGƯỜI NHẬN HÀNG </h3>
+                    <div>
+                        <span> Họ Tên </span>
+                        <input type="text" name="shipName">
+                    </div>
+                    <div>
+                        <span>Địa Chỉ</span>
+                        <input type="text" name="shipAddress">
+                    </div>
+
+                    <div>
+                        <span> Số Điện Thoại </span>
+                        <input type="text" name="shipPhone">
+                    </div>
+
+                    <input type="submit" value="Mua hàng">
+
+                </div>
+                <div class="clearfix"> </div>
+        }
+    </div>
+</div>
+

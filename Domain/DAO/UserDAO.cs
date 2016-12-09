@@ -28,7 +28,8 @@ namespace Domain.DAO {
             return data.User.Find(id);
         }
         public bool Login(string username, string password) {
-            var result = data.User.Count(x => x.Username == username && x.Password == password);
+            var result = data.User. Where(x => x.Status == true)
+                                .Count(x => x.Username == username && x.Password == password);                                                    
             return result > 0 ? true : false;
         }
 

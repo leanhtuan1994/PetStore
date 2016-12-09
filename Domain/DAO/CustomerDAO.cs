@@ -35,6 +35,26 @@ namespace Domain.DAO {
                 return false;
             }
         }
+        public long? Create(string name, string address, string email, string phone, string shipName, string shipAddress, string shipPhone) {
+            try {
+                var customer = new Customer();
+                customer.CreatedDate = DateTime.Now;
+                customer.Name = name;
+                customer.Address = address;
+                customer.Email = email;
+                customer.Phone = phone;
+                customer.ShipName = shipName;
+                customer.ShipAddress = shipAddress;
+                customer.ShipPhone = phone;
+
+                this.Create(customer);
+                return customer.ID;
+            } catch( Exception ex) {
+                return null;
+            }
+
+        }
+
 
         public bool Edit(Customer customer) {
             try {

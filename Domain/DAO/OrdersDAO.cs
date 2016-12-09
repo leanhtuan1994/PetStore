@@ -36,6 +36,16 @@ namespace Domain.DAO {
             }
         }
 
+        public long? Insert(Orders order) {
+            try {
+                db.Orders.Add(order);
+                db.SaveChanges();
+                return order.ID;
+            } catch (Exception ex) {
+                return null;
+            }
+        }
+
         public bool Edit(Orders orders) {
             try {
                 db.Entry(orders).State = EntityState.Modified;

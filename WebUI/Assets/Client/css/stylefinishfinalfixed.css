@@ -1339,7 +1339,7 @@ a.add-re:hover{
   display: block;
   color: #A09F9F;
 }
-.register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+.register-top-grid input[type="text"], .register-bottom-grid input[type="text"] {
 	width: 100%;
 	padding: 1em;
 	margin: 1em 0;
@@ -1636,7 +1636,11 @@ a.create {
 .cart-header , .cart-header1{  
   position: relative;  
 }
-.cart-header2 , .cart-header3 {  
+
+.cart-header2 , .cart-header3, .cart-header4 , 
+.cart-header5, .cart-header6, .cart-header7, 
+.cart-header8, .cart-header9, .cart-header10, 
+.cart-header11, .cart-header12, .cart-header13{  
   position: relative;  
 }
 a.order {

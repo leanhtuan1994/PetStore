@@ -64,6 +64,26 @@ namespace WebUI
                 namespaces: new[] { "WebUI.Controllers" }
             );
 
+            routes.MapRoute(
+               name: "Payment",
+               url: "thanh-toan",
+               defaults: new {
+                   controller = "Cart", action = "Payment", id = UrlParameter.Optional
+               },
+               namespaces: new[] { "WebUI.Controllers" }
+           );
+
+
+            routes.MapRoute(
+               name: "OrderSuccess",
+               url: "hoan-thanh",
+               defaults: new {
+                   controller = "Cart", action = "OrderSuccess", id = UrlParameter.Optional
+               },
+               namespaces: new[] { "WebUI.Controllers" }
+           );
+
+
 
 
 

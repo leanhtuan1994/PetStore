@@ -1277,7 +1277,7 @@
     <Content Include="Assets\Client\css\bootstrap.css" />
     <Content Include="Assets\Client\css\flexslider.css" />
     <Content Include="Assets\Client\css\memenu.css" />
-    <Content Include="Assets\Client\css\style.css" />
+    <Content Include="Assets\Client\css\stylefinishfinalfixed.css" />
     <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Client\images\2.jpg" />
     <Content Include="Assets\Client\images\b1.jpg" />
@@ -1690,6 +1690,8 @@
     <Content Include="Views\Shared\LeftMenu.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\OrderSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
