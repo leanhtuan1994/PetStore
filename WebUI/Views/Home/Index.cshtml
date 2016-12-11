@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var slides = (IEnumerable<Domain.EF.Slide>)ViewBag.Slides;
     var listNewProduct = (IEnumerable<Domain.EF.Product>)ViewBag.ListNewProduct;
-    var listFeatureProduct = (IEnumerable<Domain.EF.Product>)ViewBag.ListFeatureProduct;
+    var listFeatureCollections = (IEnumerable<Domain.EF.Product>)ViewBag.ListFeatureCollections;
     var i = 1;
 }
 
@@ -73,13 +73,13 @@
         </div>
 
         <div class="content-top-bottom">
-            <h2>Featured Collections</h2>
+            <h2> GIỐNG CHÓ ĐẶC BIỆT </h2>
             <div class="col-md-6 men">
-                <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
-                    <img class="img-responsive" src="/Assets/Client/images/t1.jpg" alt="">
+                <a href="/san-pham/" class="b-link-stripe b-animate-go  thickbox">
+                    <img class="img-responsive" src="@listFeatureCollections.ElementAt(0).Image" alt="">
                     <div class="b-wrapper">
                         <h3 class="b-animate b-from-top top-in   b-delay03 ">
-                            <span>Lorem</span>
+                            <span>@listFeatureCollections.ElementAt(0).Name</span>
                         </h3>
                     </div>
                 </a>
@@ -88,11 +88,11 @@
             </div>
             <div class="col-md-6">
                 <div class="col-md1 ">
-                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
-                        <img class="img-responsive" src="/Assets/Client/images/t2.jpg" alt="">
+                    <a href="/san-pham/" class="b-link-stripe b-animate-go  thickbox">
+                        <img class="img-responsive" src="@listFeatureCollections.ElementAt(1).Image" alt="">
                         <div class="b-wrapper">
                             <h3 class="b-animate b-from-top top-in1   b-delay03 ">
-                                <span>Lorem</span>
+                                <span>@listFeatureCollections.ElementAt(1).Name</span>
                             </h3>
                         </div>
                     </a>
@@ -100,22 +100,22 @@
                 </div>
                 <div class="col-md2">
                     <div class="col-md-6 men1">
-                        <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
-                            <img class="img-responsive" src="/Assets/Client/images/t3.jpg" alt="">
+                        <a href="/san-pham/" class="b-link-stripe b-animate-go  thickbox">
+                            <img class="img-responsive" src="@listFeatureCollections.ElementAt(2).Image" alt="">
                             <div class="b-wrapper">
                                 <h3 class="b-animate b-from-top top-in2   b-delay03 ">
-                                    <span>Lorem</span>
+                                    <span>@listFeatureCollections.ElementAt(2).Name</span>
                                 </h3>
                             </div>
                         </a>
 
                     </div>
                     <div class="col-md-6 men2">
-                        <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
-                            <img class="img-responsive" src="/Assets/Client/images/t4.jpg" alt="">
+                        <a href="/san-pham/" class="b-link-stripe b-animate-go  thickbox">
+                            <img class="img-responsive" src="@listFeatureCollections.ElementAt(3).Image" alt="">
                             <div class="b-wrapper">
                                 <h3 class="b-animate b-from-top top-in2   b-delay03 ">
-                                    <span>Lorem</span>
+                                    <span> @listFeatureCollections.ElementAt(3).Name </span>
                                 </h3>
                             </div>
                         </a>

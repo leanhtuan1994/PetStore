@@ -1289,6 +1289,7 @@
     <Content Include="Assets\Client\images\cart.png" />
     <Content Include="Assets\Client\images\close_1.png" />
     <Content Include="Assets\Client\images\co.png" />
+    <Content Include="Assets\Client\images\husy-skide-1.png" />
     <Content Include="Assets\Client\images\iconlogo.jpg" />
     <Content Include="Assets\Client\images\img-sprite.png" />
     <Content Include="Assets\Client\images\lo.png" />

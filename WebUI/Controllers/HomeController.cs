@@ -21,7 +21,7 @@ namespace WebUI.Controllers
         {
             ViewBag.Slides = new SlideDAO().ListAll();
             ViewBag.ListNewProduct = new ProductDAO().ListNewProduct(6);
-            ViewBag.ListFeatureProduct = new ProductDAO().ListFeatureProduct(4);
+            ViewBag.ListFeatureCollections = new ProductDAO().Listfeadturecollections();
             return View();
         }
 

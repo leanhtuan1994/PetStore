@@ -53,6 +53,13 @@ namespace Domain.DAO {
                               .ToList();
         }
 
+        public IEnumerable<Product> Listfeadturecollections(int top = 4) {
+            return db.Product.Include( p => p.ProductCategory)                          
+                            .OrderBy(p => p.CreatedDate)
+                            .Take(top)
+                            .ToList();
+        }
+
         public bool Create(Product product) {
             try {
                 db.Product.Add(product);

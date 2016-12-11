@@ -17,9 +17,6 @@
             @Html.DisplayNameFor(model => model[0].Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model[0].MetaTitle)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model[0].DisplayOrder)
         </th>    
         <th>
@@ -29,16 +26,7 @@
             @Html.DisplayNameFor(model => model[0].CreatedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model[0].MetaKeywords)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].MetaDescription)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model[0].Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].ShowOnHome)
         </th>
         <th></th>
     </tr>
@@ -49,9 +37,6 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MetaTitle)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.DisplayOrder)
         </td>
        
@@ -60,24 +45,14 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaKeywords)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaDescription)
-        </td>
+        </td>     
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ShowOnHome)
-        </td>
-        <td>
-            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Chi tiết", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
+            @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

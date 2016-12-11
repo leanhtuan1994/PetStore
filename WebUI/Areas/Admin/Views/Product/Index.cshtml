@@ -18,12 +18,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model[0].Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].Code)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].Description)
         </th>         
         <th>
             @Html.DisplayNameFor(model => model[0].Price)
@@ -35,19 +29,10 @@
             @Html.DisplayNameFor(model => model[0].Quantity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model[0].Detail)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model[0].CreatedDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model[0].CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].MetaKeywords)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].MetaDescription)
         </th>
         <th>
             @Html.DisplayNameFor(model => model[0].Status)
@@ -65,12 +50,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
         </td>    
         <td>
             @Html.DisplayFor(modelItem => item.Price)
@@ -82,19 +61,10 @@
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Detail)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.CreatedDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaKeywords)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)
@@ -103,9 +73,9 @@
             @Html.DisplayFor(modelItem => item.ViewCount)
         </td>
         <td>
-            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Chi Tiết", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
+            @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

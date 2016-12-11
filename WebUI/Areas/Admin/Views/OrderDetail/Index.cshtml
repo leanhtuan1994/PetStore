@@ -52,9 +52,9 @@
             @Html.DisplayFor(modelItem => item.Total)
         </td>
         <td>
-            @Html.ActionLink("Sửa", "Edit", new {  orderID=item.OrderID, productID=item.ProductID  }) |
-            @Html.ActionLink("Chi Tiết", "Details", new { orderID = item.OrderID, productID = item.ProductID }) |
-            @Html.ActionLink("Xóa", "Delete", new { orderID = item.OrderID, productID = item.ProductID })
+            @Html.ActionLink("Sửa", "Edit", new {  orderID=item.OrderID, productID=item.ProductID  }, htmlAttributes: new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { orderID = item.OrderID, productID = item.ProductID }, htmlAttributes: new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Xóa", "Delete", new { orderID = item.OrderID, productID = item.ProductID }, htmlAttributes: new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

@@ -57,9 +57,9 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Chi Tiết", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
+            @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

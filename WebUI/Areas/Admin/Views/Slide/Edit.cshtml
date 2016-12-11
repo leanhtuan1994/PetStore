@@ -28,9 +28,6 @@
 
         <div class="form-horizontal">
             <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.ID)
-
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -122,7 +119,7 @@
     }
 
     <div>
-        @Html.ActionLink("Quay Lại", "Index")
+        @Html.ActionLink("Quay Lại", "Index", null, htmlAttributes: new { @class="btn btn-default"})
     </div>
 
 </div>
