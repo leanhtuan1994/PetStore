@@ -38,6 +38,23 @@ namespace Domain.DAO {
             }
         }
 
+        public bool Create(string name, string phone, string address, string email, string content) {
+            try {
+                Feedback feed = new Feedback();
+                feed.Name = name;
+                feed.Phone = phone;
+                feed.Address = address;
+                feed.Email = email;
+                feed.CreatedDate = DateTime.Now;
+                feed.Status = true;
+                this.Create(feed);
+                return true;
+            } catch (Exception ex) {
+                return false;
+            }
+        }
+
+
         public bool Edit(Feedback feedback) {
             try {
                 db.Entry(feedback).State = EntityState.Modified;

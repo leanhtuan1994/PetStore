@@ -2,7 +2,42 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var ContactInfo = (List<Domain.EF.Contact>)ViewBag.ContactInfo;
 }
 
-<h2>Contact</h2>
+<<div class="contact">
+
+    <div class="container">
+        <h1> LIÊN HỆ </h1>
+        <div class="contact-form">
+
+            <div class="col-md-8 contact-grid">
+                @using (Html.BeginForm("Feedback", "Contact", FormMethod.Post)) {
+                    <input name="name" type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Tên';}">
+                    <input name="phone" type="text" value="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Số Điện Thoại';}">
+                    <input name="address" type="text" value="Address" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Địa chỉ';}">
+                    <input name="email" type="text" value="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
+                    <textarea name="content" cols="77" rows="6" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Nội dung';}">Message</textarea>
+                    <div class="send">
+                        <input type="submit" value="GỬI">
+                    </div>
+                }
+            </div>
+            <div class="col-md-4 contact-in">
+                <p> Địa Chỉ </p>
+                <div class="address-more">
+                    @foreach (var item in ContactInfo) {
+                        @item.Content;
+                    }
+                </div>
+
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37494223.23909492!2d103!3d55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x453c569a896724fb%3A0x1409fdf86611f613!2sRussia!5e0!3m2!1sen!2sin!4v1415776049771"></iframe>
+        </div>
+    </div>
+
+</div>
 
