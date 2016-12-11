@@ -1,8 +1,14 @@
-﻿
+﻿@model Domain.EF.Content
+
 @{
     ViewBag.Title = "ContentDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ContentDetail</h2>
+
+<div class="container">
+    @Html.Raw(Model.Detail); 
+</div>
+
+
 

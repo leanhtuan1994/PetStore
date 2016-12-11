@@ -12,7 +12,8 @@ namespace WebUI.Controllers
         // GET: Content
         public ActionResult ContentDetail(long id)
         {
-            return View();
+            var contentDetail = new ContentDAO().GetByID(id);
+            return View(contentDetail);
         }
 
         public ActionResult ContentCategory() {
