@@ -30,10 +30,15 @@
 
         [Column(TypeName = "ntext")]
         [DisplayName("Chi Tiết")]
+         [DataType(DataType.Html)]
         public string Detail { get; set; }
+
+
+       
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Ngày Tạo")]
+
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(50)]

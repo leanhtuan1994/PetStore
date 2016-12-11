@@ -67,6 +67,7 @@ namespace WebUI.Areas.Admin.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,Image,CategoryID,Detail,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescription,Status,ViewCount,Tags")] Content content)
         {
             if (ModelState.IsValid && contentDAO.Create(content)) {             
@@ -104,6 +105,7 @@ namespace WebUI.Areas.Admin.Controllers
        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "ID,Name,Description,MetaTitle,Image,CategoryID,Detail,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescription,Status,ViewCount,Tags")] Content content)
         {
             if (ModelState.IsValid && contentDAO.Edit(content)){             

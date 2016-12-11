@@ -46,6 +46,7 @@ namespace WebUI.Areas.Admin.Controllers
         // POST: Admin/Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ID,Name,Code,Description,MetaTitle,Image,MoreImages,Price,PromotionPrice,Quantity,CategoryID,Detail,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescription,Status,ViewCount")] Product product)
         {
             if (ModelState.IsValid && productDAO.Create(product)) {              
@@ -74,6 +75,7 @@ namespace WebUI.Areas.Admin.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "ID,Name,Code,Description,MetaTitle,Image,MoreImages,Price,PromotionPrice,Quantity,CategoryID,Detail,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescription,Status,ViewCount")] Product product)
         {
             if (ModelState.IsValid)  {

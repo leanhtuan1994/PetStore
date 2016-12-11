@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Domain.DAO;
 
 namespace WebUI.Controllers
 {
@@ -11,7 +12,8 @@ namespace WebUI.Controllers
         // GET: About
         public ActionResult Index()
         {
-            return View();
+            var model = new AboutDAO().getAbout();
+            return View(model);
         }
     }
 }

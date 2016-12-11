@@ -5,16 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace WebUI
-{
-    public class RouteConfig
-    {
-        public static void RegisterRoutes(RouteCollection routes)
-        {
+namespace WebUI {
+    public class RouteConfig {
+        public static void RegisterRoutes(RouteCollection routes) {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-          
-           
+
+
             // Routing cho danh mục sản phẩm
             routes.MapRoute(
                 name: "Product Category",
@@ -83,8 +80,35 @@ namespace WebUI
                namespaces: new[] { "WebUI.Controllers" }
            );
 
+            // Controller liên hệ
+            routes.MapRoute(
+              name: "Contact",
+              url: "lien-he",
+              defaults: new {
+                  controller = "Contact", action = "Index", id = UrlParameter.Optional
+              },
+              namespaces: new[] { "WebUI.Controllers" }
+          );
 
+            // Controller tin tức
+            routes.MapRoute(
+              name: "ContentCategory",
+              url: "tin-tuc",
+              defaults: new {
+                  controller = "Content", action = "ContentCategory", id = UrlParameter.Optional
+              },
+              namespaces: new[] { "WebUI.Controllers" }
+          );
 
+            // Controller tin tức
+            routes.MapRoute(
+              name: "Content Detail",
+              url: "tin-tuc/{metatitle}-{id}",
+              defaults: new {
+                  controller = "Content", action = "ContentDetail", id = UrlParameter.Optional
+              },
+              namespaces: new[] { "WebUI.Controllers" }
+          );
 
 
 

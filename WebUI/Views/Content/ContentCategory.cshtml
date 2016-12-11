@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Domain.EF.Content>
+
+@{
+    ViewBag.Title = "ContentCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blog">
+    <div class="container">
+        <h1> TIN TỨC </h1>
+        <div class="blog-top">
+            @foreach (var item in Model) {
+                var url = "/tin-tuc/" + item.MetaTitle + "-" + item.ID;
+                <div class="col-md-6 grid_3">
+                    <h3><a href="@url"> @item.Name  </a></h3>
+                    <a href="@url"><img src="~/Assets/Client/images/b1.jpg" class="img-responsive" alt="" /></a>
+
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><a class="admin" href="#"><i> </i> @item.CreatedBy </a></li>
+                            <li><span><i class="date"> </i> @item.CreatedDate </span></li>
+                        </ul>
+                    </div>
+                    <p> @item.Description </p>
+                    <div class="button"><a href="@url"> Xem thêm </a></div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

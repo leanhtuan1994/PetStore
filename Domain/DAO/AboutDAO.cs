@@ -51,5 +51,10 @@ namespace Domain.DAO {
                 return false;
             }
         }
+
+        public About getAbout(string about = "About") {
+            return db.About.SingleOrDefault(x => x.Name == about);
+
+        }
     }
 }

@@ -49,6 +49,7 @@ namespace WebUI.Areas.Admin.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ID,Name,Description,MetaTitle,Image,Detail,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescription,Status")] About about)
         {
             if (ModelState.IsValid && aboutDAO.Create(about)) {     
@@ -58,7 +59,7 @@ namespace WebUI.Areas.Admin.Controllers
             return View(about);
         }
 
-        // GET: Admin/About/Edit/5
+        // GET: Admin/About/Edit/5      
         public ActionResult Edit(long? id)
         {
             if (id == null){
@@ -79,6 +80,7 @@ namespace WebUI.Areas.Admin.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "ID,Name,Description,MetaTitle,Image,Detail,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,MetaKeywords,MetaDescription,Status")] About about)
         {
             if (ModelState.IsValid && aboutDAO.Edit(about)) {            
