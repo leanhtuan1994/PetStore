@@ -110,6 +110,16 @@ namespace WebUI {
               namespaces: new[] { "WebUI.Controllers" }
           );
 
+            // Routing tới Controller User - Register.
+            routes.MapRoute(
+             name: "Register",
+             url: "dang-ky",
+             defaults: new {
+                 controller = "User", action = "Register", id = UrlParameter.Optional
+             },
+             namespaces: new[] { "WebUI.Controllers" }
+         );
+
 
 
             routes.MapRoute(

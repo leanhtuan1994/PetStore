@@ -19,6 +19,11 @@ namespace WebUI.Areas.Admin.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Kiểm tra thông tin đăng nhập và lưu vào trong Session.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Index(LoginModel model) {
             // Gọi UserDAO để kiểm tra login
