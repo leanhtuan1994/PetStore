@@ -43,6 +43,7 @@
 
         [DisplayName("Giá")]
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
+        [DataType( DataType.Currency)]
         public decimal? Price { get; set; }
 
         [DisplayName("Giá Giảm")]

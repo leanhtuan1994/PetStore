@@ -1,14 +1,15 @@
 ﻿@model List<WebUI.Models.CartItem>
 @{
     var total = (decimal)ViewBag.total;
-   
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
 }
 
 <div class="cart box_1">
     <a href="/gio-hang/">
         <h3>
             <div class="total">
-                <span id="totalHeader"> @total </span> <span> ( đ ) -  </span>
+                <span id="totalHeader"> @string.Format(info, "{0:C}", total)</span> <span> - </span>
                 <span id="countItem"> @Model.Count </span> <span> SP </span>
             </div>
             <img src="~/Assets/Client/images/cart.png" alt="" />

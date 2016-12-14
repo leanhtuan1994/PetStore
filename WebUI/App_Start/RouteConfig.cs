@@ -119,6 +119,9 @@ namespace WebUI {
              },
              namespaces: new[] { "WebUI.Controllers" }
          );
+
+
+
             routes.MapRoute(
             name: "Login",
             url: "dang-nhap",

@@ -5,6 +5,7 @@
     ViewBag.Title = "ListCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var i = 1;
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 
 
@@ -51,7 +52,7 @@
                         <p class="tun" style="font-weight: bold"> @item.Name </p>
                         <a class="item_add">
                             <p class="number item_price" id="@addCartID" data-id="@item.ID">
-                                <i> </i> @item.Price
+                                <i> </i> @string.Format(info, "{0:C}", item.Price)
                             </p>
                         </a>
                     </div>

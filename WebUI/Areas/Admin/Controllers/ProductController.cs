@@ -37,6 +37,7 @@ namespace WebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product/Create
+        [HttpGet]
         public ActionResult Create()
         {
             SetViewBag();

@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var i = 1;
     decimal total = 0;
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 
 @section JSFooter {
@@ -56,10 +57,10 @@
                             <h3><a href="#"> @item.Product.Name</a><span>CODE: @item.Product.Code</span></h3>
                             <ul class="qty">
                                 <li><p> Số lượng: @item.Quantity </p></li>
-                                <li><p> Đơn giá: @item.Product.Price </p></li>
+                                <li><p> Đơn giá: @string.Format(info, "{0:C}", item.Product.Price) </p></li>
                             </ul>
                             <div class="delivery">
-                                <p> Thành tiền: @( item.Product.Price * item.Quantity ) </p>
+                                <p> Thành tiền: @string.Format(info, "{0:C}", item.Product.Price * item.Quantity) </p>
                                 <span> Chó được giao ngay trong ngày.</span>
                                 <div class="clearfix"></div>
                             </div>
@@ -76,14 +77,14 @@
             <div class="price-details">
                 <h3> Thông tin Giá </h3>
                 <span> Tổng </span>
-                <span class="total1" id="totalCart"> @total </span>
+                <span class="total1" id="totalCart"> @string.Format(info, "{0:C}", total)  </span>
                 <span> Giá giảm </span>
                 <span class="total1">---</span>
                 <div class="clearfix"></div>
             </div>
             <ul class="total_price">
                 <li class="last_price"> <h4> TỔNG TIỀN </h4></li>
-                <li class="last_price"> <span id="totalCart1"> @total </span> </li>
+                <li class="last_price"> <span id="totalCart1"> @string.Format(info, "{0:C}", total)</span> </li>
                 <div class="clearfix"> </div>
             </ul>
 

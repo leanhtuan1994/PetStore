@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var listCategory = (IEnumerable<Domain.EF.ProductCategory>)ViewBag.ListCategory;
     var i = 1;
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 
 <div class="product">
@@ -51,7 +52,7 @@
                         <!-- Thêm vào giỏ hàng ở đây  -->
                         <a href="#" class="item_add">
                             <p class="number item_price" id="@addCartID" data-id="@item.ID">
-                                <i> </i> @item.Price
+                                <i> </i> @string.Format(info, "{0:C}", item.Price)
                             </p>
                         </a>
                     </div>

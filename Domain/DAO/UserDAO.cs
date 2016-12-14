@@ -26,6 +26,7 @@ namespace Domain.DAO {
 
         public User GetByID(long? id) {
             return data.User.Find(id);
+
         }
 
         //Admin Login
