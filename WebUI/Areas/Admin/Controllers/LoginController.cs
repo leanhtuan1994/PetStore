@@ -36,6 +36,7 @@ namespace WebUI.Areas.Admin.Controllers
                 userSession.Username = user.Username;
                 userSession.UserID = user.ID;
                 userSession.RememberMe = model.RememberMe;
+                userSession.Status = user.Status.Value;
 
                 // Thêm User vào Session
                 Session.Add(CommonConstant.USER_SESSION, userSession);

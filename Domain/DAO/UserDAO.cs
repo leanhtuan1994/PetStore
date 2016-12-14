@@ -27,11 +27,13 @@ namespace Domain.DAO {
         public User GetByID(long? id) {
             return data.User.Find(id);
         }
+
+        //Admin Login
         public bool Login(string username, string password) {
-            var result = data.User. Where(x => x.Status == true)
-                                .Count(x => x.Username == username && x.Password == password);                                                    
+            var result = data.User.Count(x => x.Username == username && x.Password == password);                                                    
             return result > 0 ? true : false;
         }
+
 
         // lấy danh sách theo từng page
         public IEnumerable<User> ListAllPaging(int page, int pageSize) {
@@ -57,6 +59,14 @@ namespace Domain.DAO {
             } catch (Exception ex) {
                 return false;
             }
+        }
+
+        public bool CheckRegister(string username, string email) {
+            if (data.User.SingleOrDefault(x => x.Username == username) != null ||
+                data.User.SingleOrDefault(x => x.Email == email) != null) {
+                return false;
+            }
+            return true;
         }
     }
 }

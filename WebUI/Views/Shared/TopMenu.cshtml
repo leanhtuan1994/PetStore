@@ -1,4 +1,11 @@
 ﻿@model IEnumerable<Domain.EF.Menu>
+@{
+    var checkUser = Session[WebUI.Common.CommonConstant.USER_SESSION] != null ? true : false;
+    var user = new WebUI.Common.UserLogin();
+    if ( checkUser ) {
+       user = (WebUI.Common.UserLogin)Session[WebUI.Common.CommonConstant.USER_SESSION];
+    }
+}
 
 <div class="header-top">
     <div class="container">
@@ -10,10 +17,15 @@
         </div>
         <div class="header-left">
             <ul>
-                @foreach (var item in Model) {
-                    <li><a href="@item.Link" target="@item.Target"> @item.Text </a></li>
+                @if (checkUser == false) {
+                    foreach (var item in Model) {
+                        <li><a href="@item.Link" target="@item.Target"> @item.Text </a></li>
+                    }
+                } else {
+                    <li> <a>  @user.Username </a>  </li>
                 }
             </ul>
+
             @{ Html.RenderAction("HeaderCart", "Home");}
             <div class="clearfix"> </div>
         </div>

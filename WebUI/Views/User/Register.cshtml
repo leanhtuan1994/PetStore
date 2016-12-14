@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="register">
+        <h1> ĐĂNG KÍ </h1>
+        @using (Html.BeginForm("Register", "User", FormMethod.Post) ){
+            <div class="col-md-6 register-top-grid">
+                <h3> THÔNG TIN CÁ NHÂN </h3>
+                <div>
+                    <span> Họ Tên </span>
+                    <input type="text" name="name">
+                </div>
+                <div>
+                    <span> Địa chỉ</span>
+                    <input type="text" name="address">
+                </div>
+                <div>
+                    <span> Email </span>
+                    <input type="text" name="email">
+                </div>
+                <div>
+                    <span> Số điện thoại </span>
+                    <input type="text" name="phone">
+                </div>
+                <a class="news-letter" href="#">
+                    <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Nhận thông tin từ Store </label>
+                </a>
+            </div>
+            <div class="col-md-6 register-bottom-grid">
+                <h3> THÔNG TIN ĐĂNG NHẬP </h3>
+                <div>
+                    <span> Tài khoản </span>
+                    <input type="text" name="username">
+                </div>
+                <div>
+                    <span> Mật khẩu </span>
+                    <input type="password" name="password">
+                </div>
+                <div>
+                    <span>Xác nhận mật khẩu</span>
+                    <input type="password" name="confirmpassword">
+                </div>
+                <input type="submit" value="Đăng kí">
+            </div>
+            <div class="clearfix"> </div>
+        }
+    </div>
+</div>
+

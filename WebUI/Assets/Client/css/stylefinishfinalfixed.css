@@ -1338,7 +1338,7 @@ a.add-re:hover{
   display: block;
   color: #A09F9F;
 }
-.register-top-grid input[type="text"], .register-bottom-grid input[type="text"] {
+.register-top-grid input[type="text"], .register-bottom-grid input[type="text"] , .register-bottom-grid input[type="password"]{
 	width: 100%;
 	padding: 1em;
 	margin: 1em 0;

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="account">
+        <h1>Đăng nhập</h1>
+        <div class="account-pass">
+            <div class="col-md-12 account-top">
+                @using (Html.BeginForm("Login", "User", FormMethod.Post)) {
+                    <div>
+                        <span> Tài khoản </span>
+                        <input type="text" name="username">
+                    </div>
+                    <div>
+                        <span> Mật khẩu </span>
+                        <input type="password" name="password">
+                    </div>
+                    <input type="submit" value="Đăng nhập">
+                }
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+</div>
+

@@ -18,5 +18,9 @@ namespace WebUI.Common {
         public bool RememberMe {
             get;    set;
         }
+
+        public bool Status {
+            get;    set;
+        }
     }
 }
