@@ -1,2 +1,2 @@
 # PetStore
-PetStore ASP.NET MVC 5
+PetStore is ASP.NET MVC project, use SQLServer, Entity Framework, Bootstrap 3 and JQuery.
